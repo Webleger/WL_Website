@@ -11,15 +11,15 @@
 	</parent>
 
 	<groupId>org.ethiknet</groupId>
-	<artifactId>weblegerwebWebSite</artifactId>
+	<artifactId>weblegerWebSite</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<name>MonSite</name>
+	<name>WebLeger WebSite</name>
 
 	<url>http://maven.apache.org</url>
 
 	<properties>
-		<publish.url>scm:git:git@github.com:Webleger/webleger.git</publish.url>
+		<publish.url>scm:git:git@github.com:Webleger/WL_Website.git</publish.url>
 	</properties>
 
 	<dependencies>

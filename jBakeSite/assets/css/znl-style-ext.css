@@ -31,6 +31,12 @@
 	height:auto;
 }
 
+.pageContent h1, .pageContent h2, .pageContent h3, .pageContent h4, .pageContent h5, 
+.pageContent h6, .pageContent h7, .pageContent h8, .pageContent h9, .pageContent h10, 
+#footer_blocks .blockTitle {
+	color: hsl(150,30%,15%);
+}
+
 #footer_blocks .block {
 	text-align:left;
 }
@@ -47,4 +53,9 @@
 	.preHeader .blockContent {
 		margin-left: 25px;
 	}
+	.documentation .card {
+		width:31%;
+		text-align:center;
+	}
+	
 }

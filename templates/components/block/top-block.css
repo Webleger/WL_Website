@@ -1,0 +1,80 @@
+.blockContent {
+	padding: 0px 2%;
+	width: 100%;
+}
+
+.blocks {
+	display: flex;
+	flex-direction: column;
+}
+.block img {
+	width: 100px;
+}
+
+.mainBlock {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	width: 100%;
+	height: auto;
+	vertical-align: middle;
+	margin: auto;
+	padding-bottom: 3%;
+	line-height: 170%;
+	border-radius: 20px;
+    margin-bottom: 10px;
+}
+.mainBlock .blockTitle{
+	text-align: center;
+}
+
+.blockTitle {
+	font-size: 200%;
+}
+
+.blockBody {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.blockIcon {
+	width: 40px;
+	height: 40px;
+	margin-right: 1%;
+}
+
+.imageLeftTitleAndContentSubTemplate {
+	display:flex;
+	flex-direction:row;
+}
+
+
+
+/* Lastly, apply responsive CSS fixes as necessary */
+@media (min-width: 640px) {
+	.blocks {
+		flex-direction: row;
+		justify-content:space-evenly;
+	}
+	.blockIcon {
+		width: 130px;
+		height: 130px;
+	}
+	.onePerRow .card{
+		width:98%
+	}
+	.twoPerRow .card{
+		width:45%
+	}
+	.threePerRow .card{
+		width:30%
+	}
+	.fourPerRow .card{
+		width:23%
+	}
+	.fivePerRow .card{
+		width:19%
+	}
+}

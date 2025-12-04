@@ -1,0 +1,239 @@
+/** WebLeger General style **/
+
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  /* Negative indent footer by it's height */
+  margin: 0 auto;
+}
+
+#mainContent {
+	word-break: break-word;
+}
+
+a.no_state:link, 
+a.no_state:visited,
+a.no_state:hover, 
+a.no_state:active {
+  color: ${webleger.site.style.link.text-color};
+}
+
+.btn.no_state:hover {
+  color: ${webleger.site.style.primary.link.text-color};
+}
+
+.primary a.no_state:link, 
+.primary a.no_state:visited, 
+.primary a.no_state:hover, 
+.primary a.no_state:active,
+.btn-primary.no_state:link, 
+.btn-primary.no_state:visited, 
+.btn-primary.no_state:hover, 
+.btn-primary.no_state:active  {
+  color: ${webleger.site.style.primary.link.text-color};
+}
+
+.btn-primary.no_state:hover {
+  color: ${webleger.site.style.link.text-color};
+}
+
+.primary .btn.no_state:hover, .primary .btn-primary.no_state:hover  {
+  color: ${webleger.site.style.primary.link.text-color};
+}
+
+.primary .btn-primary.no_state:link, 
+.primary .btn-primary.no_state:visited, 
+.primary .btn-primary.no_state:hover, 
+.primary .btn-primary.no_state:active {
+  color: ${webleger.site.style.link.text-color};
+}
+
+.featured_label {
+	color: ${webleger.site.style.alternate.color};
+	background-color: ${webleger.site.style.alternate.background.color};
+}
+
+.primary [data-href]:hover {
+	color: ${webleger.site.style.color};
+}
+
+.discret {
+	color: ${webleger.site.style.discret.color};
+	background-color: ${webleger.site.style.discret.background.color};
+}
+
+img {
+	max-width: 100%;
+}
+
+.impact_img svg {
+	border-radius: 5px;
+}
+
+#mainContent img {
+	margin: 5px;
+}
+
+.content_tags{
+	display: inline-block;
+    list-style-type: none;
+}
+
+#pageTitle {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+#headerTitle {
+	margin: auto;
+}
+
+#logoLeft {
+	width: ${webleger.site.logoLeft.size.width.mobile};
+	height: auto;
+}
+
+#logoRight {
+	width: ${webleger.site.logoRight.size.width.mobile};
+	height: auto;
+}
+
+.pageContent {
+    padding: 0px 10px 10px 10px;
+}
+
+.icon {
+      width: 1em;
+      height: 1em;
+      vertical-align: -0.125em;
+}
+
+.widget_title_image {
+	margin-top:28px;
+}
+
+.description {
+	font-weight: lighter;
+	color: ${webleger.site.style.alternate.color};
+}
+
+.titleDescription {
+	font-size: 25px;
+	font-weight: lighter;
+	text-align: center;
+	margin-top: 5%;
+}
+
+.descriptionIcons {
+	display: flex;
+	justify-content: center;
+	width: 70px;
+	height: 70px;
+	margin-top: 3%;
+	margin-left: 40%;
+}
+
+.credit {
+	text-align: center;
+}
+
+#go_to_top {
+	position: -webkit-sticky;
+	position: fixed;
+	bottom: 50px;
+	right: 20px;
+	opacity: 0.5;
+	width: 30px;
+	height: 30px;
+}
+
+.contentHidden {
+	display:none !important;
+}
+
+.self_disabled {
+	background-color: ${webleger.site.style.disabled.background.color};
+}
+.self_disabled a {
+	pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+    color: ${webleger.site.style.disabled.color};
+}
+.self_disabled h1, .self_disabled  h2, .self_disabled  h3, .self_disabled  h4, .self_disabled  h5,
+ .self_disabled  h6, .self_disabled  h7,	.self_disabled  h8, .self_disabled  h9, .self_disabled  h10 {
+	background-color: initial;
+	color: initial;
+}
+
+.featured {
+	position:relative;
+	border-width:4px;
+}
+
+.featured_label {
+	font-weight: bold;
+	font-size: 10px;
+ 	line-height: 1.25rem;
+ 	padding: 5px 10px;
+ 	border-radius: 9999px;
+ 	
+ 	top: -1rem;
+ 	left: 50%;
+ 	position: absolute;
+ 	transform: translate(-50%,0)
+}
+
+[data-href] {
+	cursor: pointer;
+}
+
+.label {
+	font-weight: bold;
+}
+
+/* Set the fixed height of the footer here */
+#push,
+#footer {
+  padding: 25px 0 0 0;
+}
+
+/* Lastly, apply responsive CSS fixes as necessary */
+@media (min-width: 640px) {
+	#go_to_top {
+		bottom: 100px;
+		right: 50px;
+		width: 50px;
+		height: 50px;
+	}
+	#footer {
+		margin-left: -20px;
+    	margin-right: -20px;
+    	padding-left: 20px;
+    	padding-right: 20px;
+	}
+	#pageTitle {
+		justify-content: space-around;
+		flex-direction: row;
+	}
+	#logoRight {
+		width: ${webleger.site.logoRight.size.width.desktop};
+	}
+	#logoLeft {
+		width: ${webleger.site.logoLeft.size.width.desktop};
+	}
+}
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+#wrap > .container {
+  padding-top: 0px;
+}
+.container .credit {
+  margin: 20px 0;
+}

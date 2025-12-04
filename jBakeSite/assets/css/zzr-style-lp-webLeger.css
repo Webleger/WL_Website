@@ -1,0 +1,126 @@
+.lpWebLeger  h1, .lpWebLeger  h2 {
+	text-align: center;
+	letter-spacing: 0.025em;
+    font-weight: 750;
+    margin:25px 0;
+}
+
+.lpWebLeger .lp_title strong {
+	display:block;
+}
+
+.lpWebLeger .featured_label {
+	color: white;
+	background-color: ${webleger.site.style.primary.highlight.color};
+}
+
+.lpWebLeger .sticker_list {
+	margin-top : 15px;
+}
+.lpWebLeger .sticker {
+	background-color:#eaf3ee;
+	border:1px solid white;
+	border-radius:20px;
+	display: flex;
+ 	align-items: center;
+	color:${webleger.site.style.primary.highlight.color};
+	padding: 5px 20px;
+}
+
+.lpWebLeger .steps_list .steps .steps_image {
+	border-color: ${webleger.site.style.primary.highlight.color};
+	color:hsl(150,30%,15%);
+}
+
+.lpWebLeger .steps_exerpt {
+	font-weight: bold;
+}
+
+.lpWebLeger .pageContent .blockContent > p {
+	text-align:center;
+}
+
+.lpWebLeger .card_list {
+	justify-content: center;
+}
+.lpWebLeger .card .card_image {
+	margin-top: 8px;
+}
+.lpWebLeger .cta  {
+	margin: 30px 0;
+}
+.lpWebLeger .accroche {
+    margin: 30px 0;
+}
+.lpWebLeger .accroche h2 {
+	color:${webleger.site.style.primary.highlight.color};
+}
+
+.lpWebLeger .accroche.card_list {
+	justify-content: space-evenly;
+}
+
+.lpWebLeger .accroche .card {
+	border:none;
+	box-shadow:none;
+}
+.lpWebLeger .accroche .card .card_content { 
+	text-align:center;
+}
+.lpWebLeger .accroche h2 {
+	font-weight: bolder;
+}
+
+.lpWebLeger .light_cards .card {
+	box-shadow:none;
+	border:2px solid #D1E0D9;
+	border-radius:20px;
+	background-color:white;
+	padding: 10px;
+	text-align:left;
+	margin-top:20px;
+}
+.lpWebLeger .light_cards .card:hover {
+	border:2px solid ${webleger.site.style.primary.highlight.color};
+}
+.lpWebLeger .light_cards .card .card_image {
+	height:50px;
+	width: 50px;
+    padding: 13px;
+	background-color:#eaf3ee;
+	border-radius:5px;
+	display: inline-block;
+}
+.lpWebLeger .light_cards .card .card_title {
+	font-weight: 500;
+	letter-spacing: -.025em;
+}
+
+.lpWebLeger .style1 {
+	background-color:#eaf3ee;
+}
+
+.lpWebLeger .ready .card {
+	border:none;
+	color:${webleger.site.style.primary.highlight.color};
+	box-shadow:none;
+	width:unset;
+}
+
+.lpWebLeger .howTo .steps_image:hover {
+	color:${webleger.site.style.primary.color};
+	background-color:${webleger.site.style.primary.background.color};
+}
+
+.lpWebLeger .subContent {
+	border:none;
+}
+
+@media screen and (min-width: 640px) {
+	.lpWebLeger .accroche.card_list {
+	    padding: 0 130px;
+	}
+	.lpWebLeger .howTo {
+		padding-left:75px;
+	}
+}
