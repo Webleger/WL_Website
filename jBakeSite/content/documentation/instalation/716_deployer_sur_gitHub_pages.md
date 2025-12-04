@@ -37,7 +37,7 @@ Avec WebLeger  cela est encore plus simple car intégré.
     rm .git/index ; git clean -fdx
     echo "It works" > index.html
     git add . && git commit -m "initial site content" && git push origin gh-pages
-    git checkout master
+    git checkout website
 4- Construisez le site comme d'habitude *en modifiant* le host (modifier la commande ci-dessous avec *votre* host). Si vous utilisez Eclipse IDE il recommandé de créer un nouveau "Run Configuration" pour cette étape.
 
     mvn clean initialize resources:resources jbake:generate -Dwebleger.build.host=https://jderuette.github.io/ecoweb
