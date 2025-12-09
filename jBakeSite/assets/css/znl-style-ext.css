@@ -40,6 +40,9 @@
 #footer_blocks .block {
 	text-align:left;
 }
+#footer_blocks .blockBody {
+	flex-direction: row;
+}
 
 @media screen and (min-width: 640px) {
 	#footer_blocks .block {

@@ -8,7 +8,7 @@
 	flex-direction: column;
 }
 .block img {
-	width: 100px;
+	max-width: 100px;
 }
 
 .mainBlock {
@@ -34,15 +34,14 @@
 
 .blockBody {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	justify-content: space-around;
 	align-items: center;
 }
 
 .blockIcon {
-	width: 40px;
-	height: 40px;
-	margin-right: 1%;
+	width: 50px;
+	height: 50px;
 }
 
 .imageLeftTitleAndContentSubTemplate {
@@ -50,13 +49,14 @@
 	flex-direction:row;
 }
 
-
-
 /* Lastly, apply responsive CSS fixes as necessary */
 @media (min-width: 640px) {
 	.blocks {
 		flex-direction: row;
 		justify-content:space-evenly;
+	}
+	.blockBody {
+		flex-direction: row;
 	}
 	.blockIcon {
 		width: 130px;
