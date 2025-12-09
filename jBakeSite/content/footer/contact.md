@@ -1,5 +1,6 @@
 title=Contact
 type=org_openCiLife_block
+subTemplate=imageLeftSubTemplate
 category=footer
 tags=
 status=published
