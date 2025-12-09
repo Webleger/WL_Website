@@ -1,5 +1,5 @@
 <#function getComponnentInfo>
-	<#return {"componnentVersion":1, "name":"langHelper", "description":"Helper for multi-language", "recommandedNamespace":"langHelper", "version":"0.1.0", "require":[{"value":"sequenceHelper", "type":"lib"}, {"value":"propertiesHelper", "type":"lib"}, {"value":"lang", "type":"contentHeader"}, {"value":"languageSwitcher", "type":"contentHeader"}]}>
+	<#return {"componnentVersion":1, "name":"langHelper", "description":"Helper for multi-language", "recommandedNamespace":"langHelper", "version":"0.2.0", "require":[{"value":"sequenceHelper", "type":"lib"}, {"value":"propertiesHelper", "type":"lib"}, {"value":"lang", "type":"contentHeader"}, {"value":"languageSwitcher", "type":"contentHeader"}]}>
 </#function>
 
 <#function init>
@@ -21,6 +21,22 @@
 	</#if>
 	
 	<#return contentLang>
+</#function>
+
+<#-- get the language of the content, return lang as ISO 3166-1 alpha-2
+    @param content The content.
+-->
+<#function getLangForHtmlHeader content>
+	<#local contentLang = getLang(content)>
+	<#local htmlHeaderLang = contentLang>
+
+	<#if (htmlHeaderLang?length > 2) && htmlHeaderLang?contains("_")>
+		<#local htmlHeaderLang = htmlHeaderLang?keep_before("_")>
+	</#if>
+	<#if (htmlHeaderLang?length > 2) && htmlHeaderLang?contains("-")>
+		<#local htmlHeaderLang = htmlHeaderLang?keep_before("-")>
+	</#if>
+	<#return htmlHeaderLang>
 </#function>
 
 <#-- Determine if content has the correct lang

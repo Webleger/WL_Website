@@ -5,7 +5,7 @@
 <@commonInc.buildIncludes "components"/>
 <#assign uselessTempVar = commonInc.propagateContentChain(content) />
 <!DOCTYPE html>
-<html lang="<#if (langHelper)??>${langHelper.getLang(content)}<#elseif (config.site_langs_default)??>${config.site_langs_default}<#else>fr_FR</#if>">
+<html lang="<#if (langHelper)??>${langHelper.getLangForHtmlHeader(content)}<#elseif (config.site_langs_default)??>${config.site_langs_default}<#else>fr</#if>">
   <head>
     <meta charset="utf-8"/>
     <title><#if (content.title)??><#escape x as x?xml>${content.title}</#escape><#else>${propertiesHelper.retrieveAndDisplayConfigText("site.header.title")}</#if></title>
