@@ -16,7 +16,7 @@ La création d'un site web classique nécéssite :
 
 Tous ces éléments peuvent être disponibles au début de votre projet ou pas. Ils peuvent aussi évoluer (notament les contenus).
 
-Webleger encourage un fonctionnement **itératif** donc enchainer ces 3 étapes sur des petits bout du site.
+WebLeger encourage un fonctionnement **itératif** donc enchainer ces 3 étapes sur des petits bout du site.
 
 Pour WebLeger il faut : 
 

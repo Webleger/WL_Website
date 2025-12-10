@@ -5,7 +5,7 @@ includeContent={"type":"org_openCiLife_post", "category":"article", "display":{"
 category=global
 status=published
 displayDate=false
-menu={"parent":{"title":"WebLegé"}}
+menu={"parent":{"title":"WebLeger"}}
 lang=en_EN
 order=100
 ~~~~~~

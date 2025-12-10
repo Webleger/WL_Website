@@ -8,4 +8,4 @@ contentImage=<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" view
 status=published
 order=822
 ~~~~~~
-**JBake** transforme vos contenus en un site HTML statique et **Webleger** le rend ultra-léger et performant
+**JBake** transforme vos contenus en un site HTML statique et **WebLeger** le rend ultra-léger et performant

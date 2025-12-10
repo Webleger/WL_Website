@@ -7,6 +7,6 @@ titleTag=h3
 status=published
 order=94
 ~~~~~~
-[Développement](${webleger.site.ethikNetUrl})
-[Hébergement](${webleger.site.ethikNetUrl})
+[Développement](${webleger.site.ethikNetUrl}) (EthikNet)
+[Hébergement](${webleger.site.ethikNetUrl}) (EthikNet)
 [Support](https://github.com/jderuette/ecoweb/issues)

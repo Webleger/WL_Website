@@ -7,7 +7,7 @@ pageSpecificClass=lpWebLeger
 displayDate=false
 displayTitle=false
 displayBreadcrumb=false
-menu={"parent":{"title":"WebLegé"}}
+menu={"parent":{"title":"WebLeger"}}
 order=001
 ~~~~~~
 	

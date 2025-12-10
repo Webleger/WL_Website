@@ -8,4 +8,4 @@ includeContent={"type":"org_openCiLife_block", "category":"comment_utiliser_etap
 status=published
 order=824
 ~~~~~~
-Quatre étapes simples pour votre site web écoconçu
+Quatre étapes simples pour votre site web éco-conçu

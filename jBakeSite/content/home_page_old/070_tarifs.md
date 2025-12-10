@@ -25,7 +25,6 @@ Ce mode de fonctionnement va mécaniquement entrainer une mise à jour "par éta
 
 ### Hébergement 
 Vous pouvez héberger votre site chez n'importe quel hébergeur. Je peux vous aider à le sélectionner et à effectuer la configuration.
-Plus tard je proposerais surement une offre d'hébergement verte spécialisé pour héberger des site Webleger.
 
 ### Quelques exemple
 Voici quelques cas classique pour vous donner un ordre d'idée en fonction du niveau d'autonomie que vous souhaitez avoir.

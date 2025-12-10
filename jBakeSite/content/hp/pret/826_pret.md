@@ -1,4 +1,4 @@
-title=Prêt à créer votre site web écoconçu ?
+title=Prêt à créer votre site web éco-conçu ?
 date=2025-11-11
 type=org_openCiLife_block
 category=homepage

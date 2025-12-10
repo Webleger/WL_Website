@@ -8,6 +8,6 @@ specificClass=Documentation
 displayDate=false
 order=700
 ~~~~~~
-La documentation de WebLègé pour mieux utiliser l'outils de création de site qui vous aide à l'éco-conveption.
-Cette documentation est destinée aux utilisateurs souhaitant être **autonome**.
-Si vous souhaitez être accompagné consultez les pages [Agence EthikNet](${webleger.build.host}/ethiknet/900_agence.html).
+La documentation de WebLeger pour mieux utiliser l'outil de création de site qui vous aide à l'éco-conception.
+Cette documentation est destinée aux utilisateurs souhaitant être **autonomes**.
+Si vous souhaitez être accompagné consultez les pages [Agence EthikNet](${webleger.site.ethikNetUrl}).

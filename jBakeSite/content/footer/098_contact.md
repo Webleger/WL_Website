@@ -7,5 +7,5 @@ titleTag=h3
 status=published
 order=98
 ~~~~~~
-[Jérémie DERUETTE](https://github.com/jderuette/ecoweb)
+[Jérémie DERUETTE](https://github.com/Webleger/webleger/issues)
 [EthikNet](${webleger.site.ethikNetUrl})

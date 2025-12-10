@@ -1,4 +1,4 @@
-title=Les type de contenus Weblegé : org_openCiLife_ecoweb
+title=Les type de contenus WebLeger : org_openCiLife_ecoweb
 date=2025-06-23
 type=org_openCiLife_post
 includeContent={"type":"org_openCiLife_post", "category":"création", "specificClass":"documentation", "display":{"type":"card", "content":"link"}}

@@ -1,4 +1,4 @@
-title=Les outils Weblegé
+title=Les outils WebLeger
 date=2025-08-31
 type=org_openCiLife_post
 includeContent={"type":"org_openCiLife_post", "category":"création", "specificClass":"documentation", "display":{"type":"card", "content":"link"}}

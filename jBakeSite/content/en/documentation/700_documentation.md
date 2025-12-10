@@ -6,8 +6,8 @@ category=global
 status=published
 specificClass=Documentation
 displayDate=false
-menu={"parent":{"title":"WebLegé"}}
+menu={"parent":{"title":"WebLeger"}}
 lang=en_EN
 order=700
 ~~~~~~
-Weblègé documentation (in progress)
+WebLeger documentation (in progress)

@@ -5,7 +5,7 @@ includeContent={"type":"org_openCiLife_post", "category":"preparation", "specifi
 category=documentation, preparation, V0.0.1
 tags=installer WebLeger
 status=published
-exerpt=Comment récupérer le Framework Webleger
+exerpt=Comment récupérer le Framework WebLeger
 contentImage=images/documentation/recuperer_framework/file-import.svg
 specificClass=Documentation
 displayDate=true
@@ -15,9 +15,9 @@ order=715
 
 Pour commencer à utiliser WebLeger il faut "télécharger" l'outils. Il s'agit d'un **Framework** un outils qui cous guide dans une tâche données (ici créer un site Web éco-conçu et lègé).
 
-Webleger utilise un systeme de gestion de version : Git. Le projet est hébergé sur GitHub (un site facilitant la coopération avec des projet Git).
+WebLeger utilise un systeme de gestion de version : Git. Le projet est hébergé sur GitHub (un site facilitant la coopération avec des projet Git).
 
-Comme votre site contiendra **votre** contenu vous ne pouvez pas utiliser le projet Webleger directement (sinon le contenu de tous les utilsiateurs serait mélangés).
+Comme votre site contiendra **votre** contenu vous ne pouvez pas utiliser le projet WebLeger directement (sinon le contenu de tous les utilsiateurs serait mélangés).
 Il vous faut d'abord créer une "copie" du projet, cet action s'apel faire un **fork** dans le voucabulaire gitHub.
 
 ### Création du compte gitHub
@@ -25,7 +25,7 @@ Il vous faut d'abord créer une "copie" du projet, cet action s'apel faire un **
 Si vous n'avez pas encore de compte su GitHub la première étape de vous créer un compte : rendez-vous sur le site [https://github.com](https://github.com) puis créez-vous un compte.
 
 ### Fork du projet
-Une fois créé rendez-vous sur le repository du projet WebLeger : [https://github.com/jderuette/ecoweb](https://github.com/jderuette/ecoweb), puis cliquez sur le bouton **fork** en haut de l'écran. ![GitHub bouton Fork](${webleger.build.host}/images/documentation/recuperer_framework/gitHub_fork_button.png)
+Une fois créé rendez-vous sur le repository du projet WebLeger : [https://github.com/Webleger/webleger), puis cliquez sur le bouton **fork** en haut de l'écran. ![GitHub bouton Fork](${webleger.build.host}/images/documentation/recuperer_framework/gitHub_fork_button.png)
 
 Vous allez être re-dirigé sur votre fork : une "copie" du repository dans **votre** espace GitHub.
 
@@ -38,7 +38,7 @@ Vous pouriez utiliser directement le repository WebLeger MAIS :
 
 Vous pouriez "copier/coller" une version du projet en local, sans utiliser Git : 
 
-- En plus des inconvénient précédent il vous sera alors très difficile de faire les mise à jour (lors de nouvelle version de Webleger).
+- En plus des inconvénient précédent il vous sera alors très difficile de faire les mise à jour (lors de nouvelle version de WebLeger).
 
 ## Récupérer votre reprository sur votre oridnateur
 Cela va vous permetre de modifier les fichiers sur votre ordinateur (avec Eclipse IDE), puis de les envoyer sur le repository GitHub de temps en temps pour faire une sauvegarde our le partager avec les autres éditeurs de contenues.

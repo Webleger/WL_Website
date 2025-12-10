@@ -19,7 +19,7 @@ GitHub Pages ne peut héberger que des site web statiques, sans php ni java ni a
 
 Cette articles vous donnera plus d'information sur comment héberger un site sur gitHubPage indépendament de l'outils que vous utilisez [https://www.lorenzobettini.it/2020/01/publishing-a-maven-site-to-github-pages/](https://www.lorenzobettini.it/2020/01/publishing-a-maven-site-to-github-pages/).
 
-## Avec Webleger ?
+## Avec WebLeger ?
 
 Avec WebLeger  cela est encore plus simple car intégré.
 1-Changez l'URL de publication dans le fichier *pom.xml* en changeant **jderuette/ecoweb.git** par l'URL de votre repository.

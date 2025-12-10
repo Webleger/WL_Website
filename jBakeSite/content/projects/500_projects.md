@@ -8,4 +8,4 @@ displayDate=false
 order=500
 ~~~~~~
 
-Les créations réalisées à partir de **WebLegé**.
+Les créations réalisées à partir de **WebLeger**.
