@@ -37,11 +37,11 @@
         <lastmod>2025-10-23</lastmod>
     </url>
     <url>
-        <loc>https://webleger.github.io/WL_Website/index.html</loc>
+        <loc>https://webleger.github.io/WL_Website/en/index.html</loc>
         <lastmod>2025-10-16</lastmod>
     </url>
     <url>
-        <loc>https://webleger.github.io/WL_Website/en/index.html</loc>
+        <loc>https://webleger.github.io/WL_Website/index.html</loc>
         <lastmod>2025-10-16</lastmod>
     </url>
     <url>
@@ -149,10 +149,6 @@
         <lastmod>2025-12-02</lastmod>
     </url>
     <url>
-        <loc>https://webleger.github.io/WL_Website/hp/pret/826_pret.html</loc>
-        <lastmod>2025-11-11</lastmod>
-    </url>
-    <url>
         <loc>https://webleger.github.io/WL_Website/hp/besoin_aide/list/820_documentation.html</loc>
         <lastmod>2025-11-11</lastmod>
     </url>
@@ -161,12 +157,8 @@
         <lastmod>2025-11-11</lastmod>
     </url>
     <url>
-        <loc>https://webleger.github.io/WL_Website/hp/start/steps/820_installez.html</loc>
-        <lastmod>2025-11-09</lastmod>
-    </url>
-    <url>
-        <loc>https://webleger.github.io/WL_Website/hp/pret/list/820_lp_webleger_contact.html</loc>
-        <lastmod>2025-11-09</lastmod>
+        <loc>https://webleger.github.io/WL_Website/hp/pret/826_pret.html</loc>
+        <lastmod>2025-11-11</lastmod>
     </url>
     <url>
         <loc>https://webleger.github.io/WL_Website/hp/tarif/list/822_tarif_entreprise.html</loc>
@@ -193,6 +185,14 @@
         <lastmod>2025-11-09</lastmod>
     </url>
     <url>
+        <loc>https://webleger.github.io/WL_Website/hp/start/steps/820_installez.html</loc>
+        <lastmod>2025-11-09</lastmod>
+    </url>
+    <url>
+        <loc>https://webleger.github.io/WL_Website/hp/pret/list/820_lp_webleger_contact.html</loc>
+        <lastmod>2025-11-09</lastmod>
+    </url>
+    <url>
         <loc>https://webleger.github.io/WL_Website/hp/title/accroche/827_accroche_openSource.html</loc>
         <lastmod>2025-11-07</lastmod>
     </url>
@@ -203,6 +203,10 @@
     <url>
         <loc>https://webleger.github.io/WL_Website/hp/title/accroche/825_accroche_size.html</loc>
         <lastmod>2025-11-07</lastmod>
+    </url>
+    <url>
+        <loc>https://webleger.github.io/WL_Website/hp/title/822_pageTitle.html</loc>
+        <lastmod>2025-11-06</lastmod>
     </url>
     <url>
         <loc>https://webleger.github.io/WL_Website/hp/start/824_demarez.html</loc>
@@ -234,10 +238,6 @@
     </url>
     <url>
         <loc>https://webleger.github.io/WL_Website/hp/fonctionnalite/823_cta_decouvrez_fonctionalite.html</loc>
-        <lastmod>2025-11-06</lastmod>
-    </url>
-    <url>
-        <loc>https://webleger.github.io/WL_Website/hp/title/822_pageTitle.html</loc>
         <lastmod>2025-11-06</lastmod>
     </url>
     <url>
@@ -335,33 +335,5 @@
     <url>
         <loc>https://webleger.github.io/WL_Website/preHeader/080_githHub.html</loc>
         <lastmod>2025-07-07</lastmod>
-    </url>
-    <url>
-        <loc>https://webleger.github.io/WL_Website/home_page_old/015_Pour_qui.html</loc>
-        <lastmod>2025-06-18</lastmod>
-    </url>
-    <url>
-        <loc>https://webleger.github.io/WL_Website/home_page_old/060_carousel.html</loc>
-        <lastmod>2025-05-16</lastmod>
-    </url>
-    <url>
-        <loc>https://webleger.github.io/WL_Website/home_page_old/050_Contact.html</loc>
-        <lastmod>2025-05-15</lastmod>
-    </url>
-    <url>
-        <loc>https://webleger.github.io/WL_Website/home_page_old/040_Pourquoi.html</loc>
-        <lastmod>2025-05-15</lastmod>
-    </url>
-    <url>
-        <loc>https://webleger.github.io/WL_Website/home_page_old/020_Comment.html</loc>
-        <lastmod>2025-04-30</lastmod>
-    </url>
-    <url>
-        <loc>https://webleger.github.io/WL_Website/home_page_old/010_A_quoi_ca_sert.html</loc>
-        <lastmod>2025-04-30</lastmod>
-    </url>
-    <url>
-        <loc>https://webleger.github.io/WL_Website/home_page_old/030_Quel_herbergement.html</loc>
-        <lastmod>2025-04-30</lastmod>
     </url>
 </urlset>
