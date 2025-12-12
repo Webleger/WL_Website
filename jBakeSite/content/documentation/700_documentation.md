@@ -6,6 +6,7 @@ category=global
 status=published
 specificClass=Documentation
 displayDate=false
+exerpt=La documentation va vous aider à utiliser WebLeger
 order=700
 ~~~~~~
 La documentation de WebLeger pour mieux utiliser l'outil de création de site qui vous aide à l'éco-conception.

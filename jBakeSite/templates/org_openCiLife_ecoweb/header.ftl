@@ -10,9 +10,9 @@
     <meta charset="utf-8"/>
     <title><#if (content.title)??><#escape x as x?xml>${content.title}</#escape><#else>${propertiesHelper.retrieveAndDisplayConfigText("site.header.title")}</#if></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="${propertiesHelper.retrieveAndDisplayConfigText("site.header.description")}">
+    <meta name="description" content="${ecoWeb.retrieveMetaDescription(content)}">
     <meta name="author" content="${propertiesHelper.retrieveAndDisplayConfigText("site.header.author")}">
-    <meta name="keywords" content="${propertiesHelper.retrieveAndDisplayConfigText("site.header.keyword")}">
+    <meta name="keywords" content="${ecoWeb.retrieveMetaKeyWord(content)}">
     <meta name="generator" content="JBake">
     
     <#if ressourcesHelper??>

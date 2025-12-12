@@ -10,6 +10,7 @@ exerpt=Ré-utilisation de fonctionnalitées
 contentImage=images/documentation/paint.svg
 specificClass=Documentation
 displayDate=true
+exerpt=Documentation : plus d’informations sur les composants de WebLeger
 order=730
 ~~~~~~
 Les composants permettent de créer de "petites" fonctionnalitées qui peuvent être ré-utilisée dans les templates.

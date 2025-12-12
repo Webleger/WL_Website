@@ -9,6 +9,7 @@ exerpt=Installation
 contentImage=images/documentation/toolbox.svg
 specificClass=Documentation
 displayDate=true
+exerpt=Documentation : préparez votre environnement de travail
 order=710
 ~~~~~~
 Avant de créer votre première page il vous faudra certains outils
