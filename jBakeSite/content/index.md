@@ -7,7 +7,7 @@ pageSpecificClass=lpWebLeger
 displayDate=false
 displayTitle=false
 displayBreadcrumb=false
-menu={"parent":{"title":"WebLeger"}}
+exerpt=Créez des sites web légers et performants
 order=001
 ~~~~~~
 	
