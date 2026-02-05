@@ -8,4 +8,4 @@ contentImage=<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" view
 status=published
 order=824
 ~~~~~~
-Architecture par blocs réutilisables : menus automatiques, listes, tableaux, modales et carousels
+Architecture par blocs réutilisables : menus automatiques, listes, tableaux, modales et carrousels

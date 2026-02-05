@@ -8,4 +8,4 @@ hooks={"data":[{"position":"endItemSubContent", "action":"action.build", "render
 status=published
 order=821
 ~~~~~~
-EthikNet est une agence web spécialisé dans les site éco-conçu. L'agence peut réaliser votre site ou vous aider à le faire suivant vous besoin.
+EthikNet est une agence web spécialisée dans les sites éco-conçus. L'agence peut réaliser votre site ou vous aider à le faire suivant vos besoins.
