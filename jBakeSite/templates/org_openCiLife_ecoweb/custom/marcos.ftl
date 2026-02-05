@@ -1,5 +1,5 @@
 <#function getComponnentInfo>
-	<#return {"componnentVersion":1, "name":"EcoWebMacro", "description":"EcoWeb Template", "recommandedNamespace":"ecoWeb", "uses":[{"value":"logHelper", "type":"lib"}, {"value":"displayDate", "type":"contentHeader"}, {"value":"displaySiteHeaderTitle", "type":"contentHeader"}]}>
+	<#return {"componnentVersion":1, "name":"WebLegerMacro", "description":"WebLeger Template", "recommandedNamespace":"ecoWeb", "uses":[{"value":"logHelper", "type":"lib"}, {"value":"displayDate", "type":"contentHeader"}, {"value":"displaySiteHeaderTitle", "type":"contentHeader"}]}>
 </#function>
 
 <#function init>
@@ -15,9 +15,11 @@
 	</#if>
 </#macro>
 
-<#macro displayTags content>
+<#macro displayTags content, label="Tags">
 	<#if (content.tags)?? && (content.tags?size > 0) >
-		<span>Tags : </span>
+		<#if (label)?? && (label?has_content)>
+			<span>Tags : </span>
+		</#if>
 		<ul class="content_tags">
 		<#list content.tags as tag>
 			<li>${tag}</li>

@@ -1,5 +1,5 @@
 <#function getComponnentInfo>
-	<#return {"componnentVersion":1, "name":"menu", "description":"Build dynamic menus bases on content", "recommandedNamespace":"menu", "version":"0.1.0", "require":[{"value":"sequenceHelper", "type":"lib"}, {"value":"bootstrap3", "type":"lib"}], "uses":[{"value":"langHelper", "type":"lib"},{"value":"logHelper", "type":"lib"}, {"value":"site.debug.enabled", "type":"config"}, {"value":"menu", "type":"contentHeader"}, {"value":"displayMenu", "type":"contentHeader"}]}>
+	<#return {"componnentVersion":1, "name":"menu", "description":"Build dynamic menus bases on content", "recommandedNamespace":"menu", "version":"0.2.0", "require":[{"value":"sequenceHelper", "type":"lib", "value":"common", "type":"lib"}, {"value":"bootstrap3", "type":"lib"}], "uses":[{"value":"langHelper", "type":"lib"},{"value":"logHelper", "type":"lib"}, {"value":"site.debug.enabled", "type":"config"}, {"value":"menu", "type":"contentHeader"}, {"value":"displayMenu", "type":"contentHeader"}]}>
 </#function>
 
 <#function init>
@@ -112,14 +112,23 @@
 <#-- build the site menu (using Boostrap) -->
 <#macro build content>
 <#if (content.displayMenu!"true") != "false">
-	<div class="navbar navbar-light bg-white" role="navigation">
+	<div class="navbar" role="navigation">
+		<div class="container-fluid">
 	      <div class="navbar-header">
-	  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
 	    <span class="sr-only">Toggle navigation</span>
 	    <span class="icon-bar"></span>
 	    <span class="icon-bar"></span>
 	    <span class="icon-bar"></span>
 	  </button>
+	  <#if (config.site_menu_brand_src)?? && config.site_menu_brand_src?has_content>
+    	<a class="navbar-brand" href="${webleger.build.host}/index.html">
+    	<img
+    		<#if (config.site_menu_brand_specificClass)?? && config.site_menu_brand_specificClass?has_content> class="${config.site_menu_brand_specificClass}"</#if> 
+    		<#if (config.site_menu_brand_alt)?? && config.site_menu_brand_alt?has_content> alt="${config.site_menu_brand_alt}"</#if> 
+    		src="${common.buildRootPathAwareURL(config.site_menu_brand_src)}"/>
+    	</a>
+    </#if>
 	</div>
 	<div class="navbar-collapse collapse">
 	  <ul class="nav navbar-nav" role="menubar">
@@ -198,6 +207,7 @@
 	    -->
 	  </ul>
 	</div><#--/.nav-collapse -->
+	</div><!-- /.container-fluid -->
 	  </div>
 </#if>
 </#macro>

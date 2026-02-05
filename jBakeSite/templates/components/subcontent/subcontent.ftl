@@ -34,6 +34,9 @@ param : content : content to search for include content
 		<#local allSubContents = db.getPublishedContent(content.includeContent.type)>
 		<#local displaySelf = (content.includeContent.displaySelf)!"disabled">
 		<#local includeContentFilter = content.includeContent.category!"all">
+		<#local noCnontentText = content.includeContent.noContentText!"">
+		<#local maxItemToDisplay = content.includeContent.limit!-1>
+		
 		<#local subContents = allSubContents>
 		
 		<#--  filter by categories -->
@@ -48,15 +51,16 @@ param : content : content to search for include content
 			<#local currentLang = langHelper.getLang(content)>
 			<#local subContents = subContents?filter(ct -> langHelper.isCorectLang(ct, currentLang))>
 			<#if logHelper??>
-				<@logHelper.debug "Included Type " + content.includeContent.type + ", for lang " + currentLang + " : number of subContent to display " + subContents?size/>
+				<@logHelper.debug "Included Type " + content.includeContent.type + " ("+allSubContents?size+") (category : " + includeContentFilter + "), for lang " + currentLang + " : number of subContent to display " + subContents?size/>
 			</#if>
 		<#else>	
 			<#if logHelper??>
-				<@logHelper.debug "Included Type " + content.includeContent.type + " : number of subContent to display " + subContents?size/>
+				<@logHelper.debug "Included Type " + content.includeContent.type + " ("+allSubContents?size+") (category : " + includeContentFilter + ") : number of subContent to display " + subContents?size/>
 			</#if>
 		</#if>
 		
-		<div <@generateAnchor content/>>
+		<#local specificClass = (content.includeContent.specificClass)!"">
+		<div <@generateAnchor content/><#if specificClass?? && specificClass?has_content> class="${specificClass}"</#if>>
 		<#if (subContents?size > 0)>
 			<#if (content.includeContent.title)??>
 				<div class="title">${content.includeContent.title}</div>
@@ -64,8 +68,12 @@ param : content : content to search for include content
 			<#local listDisplayType = (content.includeContent.display.type)!"bullet">
 			<#local subContentDisplayContentMode = (content.includeContent.display.content)!"link">
 			<#local subContentBeforeTitleImage = (content.includeContent.display.beforeTitleImage)!"">
-			<#local specificClass = (content.includeContent.specificClass)!"">
+			
 			<#local subContentmodaleCloseButton = (content.includeContent.display.closeButton)!"close">
+			<#local subContentMoreInfoLinkLabel = (content.includeContent.display.moreInfoLinkLabel)!"">
+			<#local subContentDisplayTags = (content.includeContent.display.displayTags)!false>
+			
+			<#local hasSubTemplate = (content.includeContent.display.subTemplate)!"">
 			
 			<#if logHelper??>
 				<@logHelper.debug "listDisplayType = " + listDisplayType + " subContentDisplayContentMode = " + subContentDisplayContentMode/>
@@ -73,11 +81,15 @@ param : content : content to search for include content
 			
 			<#local theModalId = "basicModal">
 			<#if (subContentDisplayContentMode == "modal")>
-				<@modal.buildModalContainer theModalId, subContentmodaleCloseButton />
+				<@modal.buildModalContainer theModalId, subContentmodaleCloseButton, subContentMoreInfoLinkLabel/>
 			</#if>
 			
-			<#if (listDisplayType == "table")>
-				<table class="${listDisplayType}_list content_type_${subContentDisplayContentMode} ${specificClass}">
+			<#if (hasSubTemplate)?? && hasSubTemplate?has_content>
+				<#local subTemplateInterpretation = "<@${hasSubTemplate} content subContents />"?interpret>
+				<@subTemplateInterpretation/>
+				<#return>
+			<#elseif (listDisplayType == "table")>
+				<table class="${listDisplayType}_list content_type_${subContentDisplayContentMode}">
 					<thead>
 						<tr>
 							<#if (content.includeContent.display.columns)??>
@@ -96,11 +108,13 @@ param : content : content to search for include content
 					</thead>
 					<tbody>
 			<#else>
-				<div class="${listDisplayType}_list ${specificClass}">
+				<div class="${listDisplayType}_list">
 			</#if>
 			<#list subContents?sort_by("order") as subContent>
+				<#if (maxItemToDisplay!=-1) && (subContent?counter > maxItemToDisplay) >
+					<#break>
+				</#if>
 				<#local uselessTempVar = commonInc.propagateContentChain(subContent) />
-				
 				<#local subContentCategory = (subContent.category)!"__none__">
 				<#local specificContentClass = (content.includeContent.display.specificClass)!"">
 				<#local displayTitle = true>
@@ -184,7 +198,7 @@ param : content : content to search for include content
 												${contentAtttrValue?string('dd/MM/yyyy à HH:mm')}
 											<#elseif contentAtttrName=="contentImage">
 												<#if (subContent.contentImage)??>
-													<@common.addImageIcon subContent.contentImage />
+													<@common.addImageIcon subContent.contentImage "" subContent.title/>
 												</#if>
 											<#else>
 												${contentAtttrValue}
@@ -197,7 +211,7 @@ param : content : content to search for include content
 						</#if>
 						<#if (subContentDisplayContentMode == "modal")>
 						<td>
-							<@modal.extractContentForModal subContent, "button", listDisplayType, "voir plus" />
+							<@modal.extractContentForModal subContent, "button", listDisplayType, "voir plus", subContentDisplayTags />
 						</td>
 						</#if>
 						<#if subContentDisplayContentMode == "visible">
@@ -218,10 +232,8 @@ param : content : content to search for include content
 							<@hookHelper.hook "beginItemSubContent" subContent/>
 						</#if>
 						<div class="step_icon">
-							<#if (subContent.contentImage??)>
-								<#if (subContent.contentImage)??>
-									<@common.addImageIcon subContent.contentImage listDisplayType+"_image"/>
-								</#if>
+							<#if (subContent.contentImage)??>
+								<@common.addImageIcon subContent.contentImage listDisplayType+"_image" subContent.title/>
 							</#if>
 							<div class="vertical_line"></div>
 						</div>
@@ -231,6 +243,13 @@ param : content : content to search for include content
 									${subContent.exerpt!""}
 								</div>
 							</#if>
+							
+							<#if subContentDisplayTags>						
+								<span class="${listDisplayType}_tags"><#rt>
+								<@ecoWeb.displayTags subContent ""/>
+								</span>
+							</#if>
+							
 							<#if displayTitle>						
 								<h3 class="${listDisplayType}_title"><#rt>
 								<#if (subContentBeforeTitleImage?has_content)>
@@ -272,7 +291,7 @@ param : content : content to search for include content
 							<#break>
 							<#case "card">
 								<#if (subContentDisplayContentMode == "modalLink")>
-									<@modal.extractContentForModal subContent, "link", listDisplayType, "", []/>
+									<@modal.extractContentForModal subContent, "link", listDisplayType, "", subContentDisplayTags/>
 								<#elseif (subContentDisplayContentMode == "link")>
 									<a href="${common.buildRootPathAwareURL(subContent.uri)}">
 								</#if>
@@ -281,9 +300,14 @@ param : content : content to search for include content
 						<#if listDisplayType == "card">
 							<#if (subContent.contentImage??)>
 								<#if (subContent.contentImage)??>
-									<@common.addImageIcon subContent.contentImage listDisplayType+"_image"/>
+									<@common.addImageIcon subContent.contentImage listDisplayType+"_image" subContent.title/>
 								</#if>
 							</#if>
+						</#if>
+						<#if subContentDisplayTags>						
+							<span class="${listDisplayType}_tags"><#rt>
+							<@ecoWeb.displayTags subContent ""/>
+							</span>
 						</#if>
 						<#if displayTitle>						
 							<h3 class="${listDisplayType}_title"><#rt>
@@ -301,7 +325,7 @@ param : content : content to search for include content
 						<#if listDisplayType != "card">
 							<#if (subContent.contentImage??)>
 								<#if (subContent.contentImage)??>
-								<@common.addImageIcon subContent.contentImage listDisplayType+"_image"/>
+								<@common.addImageIcon subContent.contentImage listDisplayType+"_image" subContent.title/>
 								</#if>
 							</#if>
 						</#if>
@@ -317,7 +341,7 @@ param : content : content to search for include content
 						</#if>
 						
 						<#if (subContentDisplayContentMode == "modal")>
-							<@modal.extractContentForModal subContent, "button", listDisplayType, "voir plus" />
+							<@modal.extractContentForModal subContent, "button", listDisplayType, "voir plus", subContentDisplayTags />
 						</#if>
 						<#if (subContentDisplayContentMode == "visible" || subContentDisplayContentMode == "modalLink")>
 							<div class="${listDisplayType}_content<#if subContentDisplayContentMode == "modalLink"> contentHidden</#if>">
@@ -337,7 +361,7 @@ param : content : content to search for include content
 					<#if hookHelper??>
 						<@hookHelper.hook "afterItemSubContent" subContent/>
 					</#if>
-				</#if> <#-- end onf contentDuisplayType "switch" -->
+				</#if> <#-- end onf contentDisplayType "switch" -->
 			</#list>
 			<#if (listDisplayType == "table")>
 					</tbody>
@@ -345,8 +369,15 @@ param : content : content to search for include content
 			<#else>
 				</div>
 			</#if>
+			<#if (content.includeContent.showMore)??>
+				<div class="showMoreContainer">
+				<a class="showMore<#if (content.includeContent.showMore.specificClass)??> ${content.includeContent.showMore.specificClass}</#if>" href="${content.includeContent.showMore.to}">
+					${content.includeContent.showMore.label}
+				</a>
+				</div>
+			</#if>
 		<#else>
-			pas de contenus (pour le moment).
+			<span class="noContent">${noCnontentText}</span>			
 		</#if>
 		</div>
 		<#if hookHelper??>

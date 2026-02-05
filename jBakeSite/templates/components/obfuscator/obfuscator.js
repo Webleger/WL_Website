@@ -19,7 +19,7 @@ $('*[data-obfuscatedMailTo]').on('submit', function() {
     return true;
 });
 
-$('*[data-obfuscatedValue]').on('click', function() {
+$('input[data-obfuscatedValue]').on('click', function() {
 	var obfuscatedValue = $(this).data("obfuscatedvalue");
 	var obfuscatedKey = $(this).data("obfuscatedkey");
 	var obfuscatedTarget = $(this).data("obfuscatedtarget");
@@ -30,7 +30,10 @@ $('*[data-obfuscatedValue]').on('click', function() {
 });
 
 $('span[data-obfuscatedkey]').on('click', function() {
-	var obfuscatedValue = $(this).text();
+	var obfuscatedValue = $(this).data("obfuscatedvalue");
+	if(typeof obfuscatedValue === "undefined"){
+		var obfuscatedValue = $(this).text();
+	}
 	var obfuscatedKey = $(this).data("obfuscatedkey");
 	console.log ("data-obfuscatedkey (span) : Handling obfuscated ("+obfuscatedValue+" using key : "+obfuscatedKey+")");
 	var humanReadeableText = unObfuscText(obfuscatedValue, obfuscatedKey);
@@ -39,11 +42,14 @@ $('span[data-obfuscatedkey]').on('click', function() {
 	$(this).next('img.showHiddenDataAppendedButton').remove();
 });
 
-$('span[data-obfuscatedkey]').append('<img class="showHiddenDataAppendedButton" style="width: 24px;margin: 0 4px 0 4px;" src="${webleger.build.host}/${webleger.site.template}/images/eyes.svg" alt="clickez pour voir l\'e-mail en clair"></img>');
+$('span[data-obfuscatedkey]').append('<img class="showHiddenDataAppendedButton" style="width: 24px;margin: 0 4px 0 4px;" src="${webleger.build.host}/${webleger.site.template}/images/eyes.svg" alt="cliquez pour voir en clair"></img>');
 
 
 $('a[data-obfuscatedkey]').on('click', function() {
-	var obfuscatedValue = $(this).attr('href');
+	var obfuscatedValue = $(this).data("obfuscatedvalue");
+	if(typeof obfuscatedValue === "undefined"){
+		var obfuscatedValue = $(this).attr('href');
+	}
 	var obfuscatedKey = $(this).data("obfuscatedkey");
 	console.log ("data-obfuscatedkey (link) : Handling obfuscated ("+obfuscatedValue+" using key : "+obfuscatedKey+")");
 	var humanReadeableText = unObfuscText(obfuscatedValue, obfuscatedKey);
