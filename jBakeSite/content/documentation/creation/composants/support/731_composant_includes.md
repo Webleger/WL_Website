@@ -16,7 +16,7 @@ Il se configure via le fichier de configuration.
 
 ``components={"data":[{"file":"components/logHelper/logHelper.ftl"}, {"file":"components/commonHelper/commonHelper.ftl"}, {"file":"components/propertiesHelper/propertiesHelper.ftl"}, {"file":"components/includes/includes.ftl"}, ....``
 
- -``file`` : emplacement du fichier contenant le composant
+ - ``file`` : emplacement du fichier contenant le composant
  - ``namespace`` : alias pour accèder au composant. **Attention** cela __remplace__ l'alias recommandé par le composant. D'autres composants dépendant peuvent ne plus fonctionner !
 
 Il a aussi à charge de gèrer les composants (qui sont des éléments incluable dans les templates) notament : 

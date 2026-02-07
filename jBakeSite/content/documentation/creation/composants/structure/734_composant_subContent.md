@@ -4,7 +4,7 @@ type=org_openCiLife_block
 category=documentation, doc_composants, V0.0.1
 tags=Création de contenu
 status=published
-exerpt=Composants subContent
+exerpt=Composant subContent
 specificClass=Documentation
 displayDate=true
 hooks={"data":[{"position":"afterBody", "action":"commonInc.buildComponnentInfos", "renderOnce":true}]}
@@ -47,12 +47,13 @@ Le format d'affichage des éléments :
 	- **modalLink** : Lorsque l'utilisateur clique une fenêtre modal apparait avec le détail du contenu.
 	- **link** : lorsque l'utilisateur clique sur le contenu une nouvelle page s'affiche
 	- **visible** : le contenu est directement intégré
-  
+- ``display.subTemplate`` : le sous contenu sera généré par un "sous-template" personalisé. par exemple ``"display":{"type":"type", "subTemplate":"humaniPattes.partenairesCard"}``
+
 Des exmples des différentes combinaisons sont diponibles : [subContent_exemples/735_composant_subContent_exemples.html](subContent_exemples/735_composant_subContent_exemples.html)
 
 Les autres attributs : 
 
-``includeContent.display.columns`` : liste des colonnes du tableau a afficher. Le format d'un colone est le suivant : ``{"name":"titre_de_la_colnne", "attr":"nom_de_l'attribut", "order":1}`` par exemple : {"name":"logo", "attr":"contentImage", "order":1}. **nom_de_l'attribut** est un attribut d'entête du contenu.
+``includeContent.display.columns`` : liste des colonnes du tableau à afficher. Le format d'un colonne est le suivant : ``{"name":"titre_de_la_colnne", "attr":"nom_de_l'attribut", "order":1}`` par exemple : {"name":"logo", "attr":"contentImage", "order":1}. **nom_de_l'attribut** est un attribut d'entête du contenu.
 
 ``includeContent.display.closeButton`` : texte du bouton permetant de fermer la fenêtre modal.
 
