@@ -1,4 +1,4 @@
-title=Composant menu
+title=Composant breadcrumb
 date=2025-11-03
 type=org_openCiLife_block
 category=documentation, doc_composants, V0.0.1
