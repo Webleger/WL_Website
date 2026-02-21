@@ -10,4 +10,4 @@ specificClass=Documentation
 displayDate=true
 order=735
 ~~~~~~
-Voici des exemple pour le composants subContent
+Voici des exemples pour le composants subContent

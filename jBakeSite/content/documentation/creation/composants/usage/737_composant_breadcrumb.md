@@ -13,7 +13,7 @@ order=737
 ~~~~~~
 Ce composant permet d'afficher un fils d'ariane. Il se configure via le fichier de configuration.
 
-- ``site.breakcrumb.display=true`` : indique si le fils d'ariane doit etre affiché par defaut
-- ``site.breakcrumb.seprator=>>`` :  indique le séparateurs à utiliser entre les différents élément.
+- ``site.breakcrumb.display=true`` : indique si le fils d'ariane doit être affiché par défaut
+- ``site.breakcrumb.seprator=>>`` : indique le séparateur à utiliser entre les différents éléments.
 
-Chaque contenu peut définir si le fils d'ariane doit être affiché ou non (remplace la valeur par défaut du fichier de configuration) via l'attribut d'entête de contenu : ``displayBreadcrumb``
+Chaque contenu peut définir si le fils d'ariane doit être affiché ou non (remplace la valeur par défaut du fichier de configuration.) via l'attribut d'entête de contenu : ``displayBreadcrumb``.

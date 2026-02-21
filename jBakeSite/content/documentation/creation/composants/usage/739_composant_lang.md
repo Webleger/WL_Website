@@ -11,13 +11,13 @@ hooks={"data":[{"position":"afterBody", "action":"commonInc.buildComponnentInfos
 documentationComponent={"namespace":"langHelper"}
 order=739
 ~~~~~~
-Ce composant permet d'aficher le site en plusieurs langues.
+Ce composant permet d'afficher le site en plusieurs langues.
 
 Ce composant se configure via le fichier de configuation
 
-- ``site.langs.default=fr_FR`` : langue par défaut pour les contenus ne précisant leur language.
-- ``site.langs={"data":[{"local":"fr_FR", "title":"FR", "icon":"org_openCiLife_ecoWeb/images/lang/ico_fr.png", "folder":""}, {"local":"en_EN", "title":"EN", "icon":"org_openCiLife_ecoWeb/images/lang/ico_uk.png", "folder":"en"}]}`` : configuration des langues et pour chacune : sont code (local), sont label, un icon et le sous dossier du site contenant la page principal (index) de cette langue.
+- ``site.langs.default=fr_FR`` : langue par défaut pour les contenus ne précisant pas leur langage
+- ``site.langs={"data":[{"local":"fr_FR", "title":"FR", "icon":"org_openCiLife_ecoWeb/images/lang/ico_fr.png", "folder":""}, {"local":"en_EN", "title":"EN", "icon":"org_openCiLife_ecoWeb/images/lang/ico_uk.png", "folder":"en"}]}`` : configuration des langues et pour chacune : son code (local), son label, un icône et le sous-dossier du site contenant la page principal (index) de cette langue.
 
-Chaque contenu précise la langue dans laquel le contenu est rédigé via l'attribut d'entête : ``lang``. plusieur langues peuvent être précisé, chacune séparé par une virgule.
+Chaque contenu précise la langue dans laquelle le contenu est rédigé via l'attribut d'entête : ``lang``. Plusieurs langues peuvent être précisé, chacune séparée par une virgule.
 
-Pou affiche le selecteur de langue il faut créer un contenu avec un attribut d'entête de document : ``languageSwitcher=true``.
+Pou affiche le sélecteur de langue, il faut créer un contenu avec un attribut d'entête de document : ``languageSwitcher=true``.

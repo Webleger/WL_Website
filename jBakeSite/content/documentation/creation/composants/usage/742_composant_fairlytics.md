@@ -11,10 +11,9 @@ hooks={"data":[{"position":"afterBody", "action":"commonInc.buildComponnentInfos
 documentationComponent={"namespace":"fairlytics"}
 order=742
 ~~~~~~
-Ce composant permet de collecter des statistiques d'utilsiation du site (page vues) de façon non intrusive et respectant les données privées des visiteurs.
+Ce composant permet de collecter des statistiques d'utilisation du site (pages vues) de façon non intrusive et respectant les données privées des visiteurs.
 
-Pour l'utiliser il faut une clef (gratuite) que l'on peut obteniri ici : https://fairlytics.tech/.
+Pour l'utiliser, il faut une clef (gratuite) que l'on peut obtenir ici : https://fairlytics.tech/.
 
-Ce composant se configure via le fichier de configuration
-
-- ``webleger.component.fairlytics.key=votre_clef``
+Ce composant se configure via le fichier de configuration :
+``webleger.component.fairlytics.key=votre_clef``

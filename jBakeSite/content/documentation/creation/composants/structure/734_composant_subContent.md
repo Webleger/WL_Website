@@ -11,10 +11,10 @@ hooks={"data":[{"position":"afterBody", "action":"commonInc.buildComponnentInfos
 documentationComponent={"namespace":"subcontent"}
 order=734
 ~~~~~~
-Ce composant permet d'inclure des contenues dans un autre contenu. Il est assez simillaire au composant *block* mais **subContent* sert à effectuer des listing.
+Ce composant permet d'inclure des contenus dans un autre contenu. Il est assez similaire au composant *block* mais **subContent* sert à effectuer des listing.
 Par exemple "dans la même catégorie" ou "vous pourriez aussi aimer".
 
-Pour ajouter des sous contenue il faut utiliser le paramètre d'entête de contenu ``includeContent``. Voici un exemple d'utilisation : 
+Pour ajouter des sous contenu, il faut utiliser le paramètre d'entête de contenu ``includeContent``. Voici un exemple d'utilisation : 
 
 ```
 includeContent={"type":"org_openCiLife_post", "category":"création", "specificClass":"documentation", "title":"Dans la même catégorie", "display":{"type":"card", "content":"link"}}
@@ -22,14 +22,14 @@ includeContent={"type":"org_openCiLife_post", "category":"création", "specificC
 
 Choix des contenus : 
 
- - ``type`` : le type de contenu à conserver.
- - ``category`` : la catégorie de contenu à conserver.
+- ``type`` : le type de contenu à conserver.
+- ``category`` : la catégorie de contenu à conserver.
  
-Personalisation : 
+Personnalisation : 
 
- - ``specificClass`` permet d'ajouter une classe spécific pour permetre la personalisation de l'affichage (via le CSS).
- - ``title`` : permet de personaliser le titre de la section.
- - ``hooks`` : permet d'ajouter des contenu via les Hooks interne du composant, par exemple pour activer les formulaire et les block dans **les** sous-contenus : 
+- ``specificClass`` permet d'ajouter une classe spécifique pour permettre la personnalisation de l'affichage (via le CSS).
+- ``title`` : permet de personnaliser le titre de la section.
+- ``hooks`` : permet d'ajouter des contenus via les Hooks internes du composant, par exemple pour activer les formulaires et les block dans **les** sous-contenus : 
  
  ```
  "hooks":{"data":[{"position":"endItemSubContent", "action":"block.build", "renderOnce":true}, {"position":"endItemSubContent", "action":"form.build", "renderOnce":true}]}, "display":{"type":"card", "content":"visible"}
@@ -38,23 +38,23 @@ Personalisation :
 Le format d'affichage des éléments : 
 
 - ``display.type`` : les formats supportés sont : 
-	- **table** : les sous-contenus sont affiché sous forme d'un tableau. Chaque ligne affiche : l'image du contenu, le titre puis le résumé du contenu. Des colonnes supplémentaires peuvent être affichée à partir des attributs d'entête de chacun des sous contenu via l'attribut **columns**.
-	- **link** : chaque contenu est un simple lien.
-	- **collapse_block** : les sous-contenus sont affiché sous forme d'un paragraphe avec un titre le contenu s'affiche en dessous lorsque l'utilisateur clique sur le titre (comme dans une FaQ)
-	- **card** : chaque contenu est fficher sous forme d'une petite carte.
+- **table** : les sous-contenus sont affichés sous forme d'un tableau. Chaque ligne affiche : l'image du contenu, le titre puis le résumé du contenu. Des colonnes supplémentaires peuvent être affichées à partir des attributs d'entête de chacun des sous contenu via l'attribut **columns**.
+- **link** : chaque contenu est un simple lien.
+- **collapse_block** : les sous-contenus sont affichés sous forme d'un paragraphe avec un titre, le contenu s'affiche en dessous lorsque l'utilisateur clique sur le titre. (comme dans une FaQ)
+- **card** : chaque contenu est affiché sous forme d'une petite carte.
 - ``display.content``
-	- **modal** : Un bouton est affiché permetant d'afficher le détail du contenu dans une fenêtre modal (une sorte de "popup" interne au site) s'affiche avec le contenu
-	- **modalLink** : Lorsque l'utilisateur clique une fenêtre modal apparait avec le détail du contenu.
-	- **link** : lorsque l'utilisateur clique sur le contenu une nouvelle page s'affiche
-	- **visible** : le contenu est directement intégré
-- ``display.subTemplate`` : le sous contenu sera généré par un "sous-template" personalisé. par exemple ``"display":{"type":"type", "subTemplate":"humaniPattes.partenairesCard"}``
+- **modal** : un bouton est affiché permettant d'afficher le détail du contenu dans une fenêtre modal (une sorte de "popup" interne au site) s'affiche avec le contenu.
+- **modalLink** : lorsque l'utilisateur clique, une fenêtre modale apparaît avec le détail du contenu.
+- **link** : lorsque l'utilisateur clique sur le contenu, une nouvelle page s'affiche.
+- **visible** : le contenu est directement intégré.
+- ``display.subTemplate`` : le sous contenu sera généré par un "sous-template" personnalisé. Par exemple ``"display":{"type":"type", "subTemplate":"humaniPattes.partenairesCard"}``
 
-Des exmples des différentes combinaisons sont diponibles : [subContent_exemples/735_composant_subContent_exemples.html](subContent_exemples/735_composant_subContent_exemples.html)
+Des exemples des différentes combinaisons sont disponibles : [subContent_exemples/735_composant_subContent_exemples.html](subContent_exemples/735_composant_subContent_exemples.html)
 
 Les autres attributs : 
 
-``includeContent.display.columns`` : liste des colonnes du tableau à afficher. Le format d'un colonne est le suivant : ``{"name":"titre_de_la_colnne", "attr":"nom_de_l'attribut", "order":1}`` par exemple : {"name":"logo", "attr":"contentImage", "order":1}. **nom_de_l'attribut** est un attribut d'entête du contenu.
+``includeContent.display.columns`` : liste des colonnes du tableau à afficher. Le format d'une colonne est le suivant : ``{"name":"titre_de_la_colnne", "attr":"nom_de_l'attribut", "order":1}`` par exemple : {"name":"logo", "attr":"contentImage", "order":1}. **nom_de_l'attribut** est un attribut d'entête du contenu.
 
-``includeContent.display.closeButton`` : texte du bouton permetant de fermer la fenêtre modal.
+``includeContent.display.closeButton`` : texte du bouton permettant de fermer la fenêtre modal.
 
 ``includeContent.display.beforeTitleImage`` : image à afficher avant le titre pour les bloque de textes rétractables.

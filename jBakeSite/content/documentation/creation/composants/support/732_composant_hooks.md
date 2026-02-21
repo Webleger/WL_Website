@@ -11,7 +11,7 @@ hooks={"data":[{"position":"afterBody", "action":"commonInc.buildComponnentInfos
 documentationComponent={"namespace":"hookHelper"}
 order=732
 ~~~~~~
-Ce composant permet de déclarer des **hook** : une zone dans le template qui conteindra du contenu déclaré par d'autres composants. 
+Ce composant permet de déclarer des **hook** : une zone dans le template qui contiendra du contenu déclaré par d'autres composants. 
 
 ```
 <#if hookHelper??>
@@ -19,17 +19,17 @@ Ce composant permet de déclarer des **hook** : une zone dans le template qui co
 </#if>
 ```
 
-Le composant **hooks** permet d'ajouter du contenu dans une hook via sont identifiant. Soit de facçon globale : via le fichier de configuration
+Le composant **hooks** permet d'ajouter du contenu dans une hook via son identifiant. Soit de façon globale : via le fichier de configuration
 
 ```
 webleger.hooks={"data":[{"position":"afterBody", "action":"langHelper.build"}, {"position":"afterBody", "action":"form.build"}, ...
 ```
 
-soit dans un contenu spécifique via les attributs d'entete d'un contenu
+soit dans un contenu spécifique via les attributs d'entête d'un contenu
 
 ```
 hooks={"data":[{"position":"afterBody", "action":"commonInc.buildComponnentInfos"}]}
 ```
 
-Il est possible de configurer un délcenchement du rendu d'une hook de façon unique (pour la page en cour). Cela est pratique dans le cas d'une hook qui serait présent plusieurs fois dans une page mais pour lequel on ne souhaite la déclencher qu'une fois.
-Par exemple avec le composant **block** si plusieurs blocks intégré dans un même autre contenu enregistre une hook, alors cette hook sera presente 2 fois au deuxièle block, 3 fois au troisème, ... Le paramètre ``"renderOnce":true`` permet d'éviter cette acumation car dès que la hook effectue le rendu, cette hook est supprimée. Les autre blocks peuvnt alors à nouveau l'ajouter (en précisant à nouveau ``"renderOnce":true`` ce qui fait que la hook est en faite ajouté au début du traitement du contenue, puis rendue, puis supprimée).
+Il est possible de configurer un déclenchement du rendu d'une hook de façon unique (pour la page en cour). Cela est pratique dans le cas d'une hook qui serait présent plusieurs fois dans une page, mais pour lequel on ne souhaite la déclencher qu'une fois.
+Par exemple avec le composant **block** si plusieurs blocks intégrés dans un même autre contenu enregistre une hook, alors cette hook sera présente 2 fois au deuxième block, 3 fois au troisième, ... Le paramètre ``"renderOnce":true`` permet d'éviter cette accumulation, car dès que la hook effectue le rendu, cette hook est supprimée. Les autres blocks peuvent alors à nouveau l'ajouter (en précisant à nouveau ``"renderOnce":true`` ce qui fait que la hook est en fait ajouté au début du traitement du contenu, puis rendue, puis supprimée).

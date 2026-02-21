@@ -13,7 +13,7 @@ order=743
 ~~~~~~
 Ce composant permet d'afficher des informations provenant d'un compte FaceBook.
 
-Ce composant se configure via le fichier de configuration
+Ce composant se configure via le fichier de configuration.
 
 - ``webleger.component.meta.dev.key=`` : votre clef facebook Developer
 - ``webleger.component.meta.dev.sdk.version=v2.7`` : version du SDK à utiliser
@@ -24,7 +24,7 @@ Ce composant se configure via le fichier de configuration
 - ``webleger.component.meta.facebook.container.width.desktop=500`` : largeur en version ordinateur
 - ``webleger.component.meta.facebook.container.height.desktop=500`` : longeur en version ordinateur
 
-Pour activer le composant il faut ajouter en **attribut d'entête du contenu** une **hook** par exemple 
+Pour activer le composant, il faut ajouter en **attribut d'entête du contenu** une **hook** par exemple : 
 
-- pour les actulaitées : ``hooks={"data":[{"position":"afterBlockBody", "action":"facebook.buildNews", "renderOnce":true, "order":25}]}``
-- pour les évènnements : ``hooks={"data":[{"position":"afterBlockBody", "action":"facebook.buildEvent", "renderOnce":true, "order":25}]}``
+- pour les actualités : ``hooks={"data":[{"position":"afterBlockBody", "action":"facebook.buildNews", "renderOnce":true, "order":25}]}``
+- pour les événements : ``hooks={"data":[{"position":"afterBlockBody", "action":"facebook.buildEvent", "renderOnce":true, "order":25}]}``

@@ -12,4 +12,4 @@ displayDate=true
 exerpt=Documentation : créez votre premier site
 order=720
 ~~~~~~
-Cette partie de la documentation va vous aider à créer du contenu pour votre site
+Cette partie de la documentation va vous aider à créer du contenu pour votre site.

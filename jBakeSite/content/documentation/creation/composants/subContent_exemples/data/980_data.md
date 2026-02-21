@@ -11,4 +11,4 @@ displayDate=true
 order=980
 ~~~~~~
 Contient des exemples de données.
-Chaque contenue possède un tag **data_sample** pour identifier ces contenus d'exemple.
+Chaque contenu possède un tag **data_sample** pour identifier ces contenus d'exemple.
