@@ -58,7 +58,7 @@ param : content : content to search for include content
 	<#if logHelper??>
  		${logHelper.stackDebugMessage("ToC : Building a Select ToC")}
  	</#if>
-	<div class="toc">
+	<div class="toc" role="navigation" aria-label="Table des matières">
 		<#local endTag="">
 		<select id="toc-select" class="toc_list toc-select">
 		<option value="">--${displayToc.title!"Naviguation"}--</option>
