@@ -53,6 +53,13 @@ code {
 	flex-direction: row;
 }
 
+
+.pageContent .documentation .title{
+	font-size:x-large;
+	color:hsl(150,30%,15%);
+	margin-top:12px;
+}
+
 @media screen and (min-width: 640px) {
 	#footer_blocks .block {
 		width:31%;
