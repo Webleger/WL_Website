@@ -5,6 +5,10 @@
         <lastmod>2019-03-16</lastmod>
     </url>
     <url>
+        <loc>https://webleger.github.io/WL_Website/mentions_legales.html</loc>
+        <lastmod>2027-06-01</lastmod>
+    </url>
+    <url>
         <loc>https://webleger.github.io/WL_Website/documentation/creation/composants/subContent_exemples/data/980_data.html</loc>
         <lastmod>2025-10-30</lastmod>
     </url>
@@ -73,7 +77,7 @@
         <lastmod>2025-06-17</lastmod>
     </url>
     <url>
-        <loc>https://webleger.github.io/WL_Website/documentation/instalation/710_Preparation.html</loc>
+        <loc>https://webleger.github.io/WL_Website/documentation/instalation/718_deployer_le_site.html</loc>
         <lastmod>2025-06-16</lastmod>
     </url>
     <url>
@@ -81,7 +85,7 @@
         <lastmod>2025-06-16</lastmod>
     </url>
     <url>
-        <loc>https://webleger.github.io/WL_Website/documentation/instalation/718_deployer_le_site.html</loc>
+        <loc>https://webleger.github.io/WL_Website/documentation/instalation/710_Preparation.html</loc>
         <lastmod>2025-06-16</lastmod>
     </url>
     <url>
@@ -99,10 +103,6 @@
     <url>
         <loc>https://webleger.github.io/WL_Website/faq/800_faq.html</loc>
         <lastmod>2025-05-14</lastmod>
-    </url>
-    <url>
-        <loc>https://webleger.github.io/WL_Website/documentation/instalation/716_deployer_sur_gitHub_pages.html</loc>
-        <lastmod>2025-05-02</lastmod>
     </url>
     <url>
         <loc>https://webleger.github.io/WL_Website/documentation/instalation/714_configurer_eclipse.html</loc>
@@ -126,23 +126,43 @@
     </url>
     <url>
         <loc>https://webleger.github.io/WL_Website/footer/098_contact.html</loc>
-        <lastmod>2025-12-12</lastmod>
+        <lastmod>2026-02-22</lastmod>
     </url>
     <url>
         <loc>https://webleger.github.io/WL_Website/footer/094_services.html</loc>
-        <lastmod>2025-12-12</lastmod>
+        <lastmod>2026-02-22</lastmod>
     </url>
     <url>
         <loc>https://webleger.github.io/WL_Website/footer/092_produit.html</loc>
-        <lastmod>2025-12-12</lastmod>
+        <lastmod>2026-02-22</lastmod>
     </url>
     <url>
         <loc>https://webleger.github.io/WL_Website/footer/090_accroche_produit.html</loc>
-        <lastmod>2025-12-12</lastmod>
+        <lastmod>2026-02-22</lastmod>
+    </url>
+    <url>
+        <loc>https://webleger.github.io/WL_Website/documentation/creation/composants/usage/746_composant_tableOfContent.html</loc>
+        <lastmod>2026-02-22</lastmod>
+    </url>
+    <url>
+        <loc>https://webleger.github.io/WL_Website/documentation/creation/composants/usage/744_composant_legal.html</loc>
+        <lastmod>2026-02-07</lastmod>
+    </url>
+    <url>
+        <loc>https://webleger.github.io/WL_Website/documentation/creation/composants/usage/743_composant_facebook.html</loc>
+        <lastmod>2026-02-04</lastmod>
+    </url>
+    <url>
+        <loc>https://webleger.github.io/WL_Website/documentation/creation/composants/usage/742_composant_fairlytics.html</loc>
+        <lastmod>2026-02-04</lastmod>
     </url>
     <url>
         <loc>https://webleger.github.io/WL_Website/hp/besoin_aide/list/821_ethiknet.html</loc>
         <lastmod>2025-12-02</lastmod>
+    </url>
+    <url>
+        <loc>https://webleger.github.io/WL_Website/hp/pret/826_pret.html</loc>
+        <lastmod>2025-11-11</lastmod>
     </url>
     <url>
         <loc>https://webleger.github.io/WL_Website/hp/besoin_aide/list/820_documentation.html</loc>
@@ -151,18 +171,6 @@
     <url>
         <loc>https://webleger.github.io/WL_Website/hp/besoin_aide/827_besoin_aide.html</loc>
         <lastmod>2025-11-11</lastmod>
-    </url>
-    <url>
-        <loc>https://webleger.github.io/WL_Website/hp/pret/826_pret.html</loc>
-        <lastmod>2025-11-11</lastmod>
-    </url>
-    <url>
-        <loc>https://webleger.github.io/WL_Website/hp/tarif/list/822_tarif_entreprise.html</loc>
-        <lastmod>2025-11-09</lastmod>
-    </url>
-    <url>
-        <loc>https://webleger.github.io/WL_Website/hp/tarif/list/821_tarif_thecnoAnthousiaste.html</loc>
-        <lastmod>2025-11-09</lastmod>
     </url>
     <url>
         <loc>https://webleger.github.io/WL_Website/hp/tarif/list/820_tarif_developeur.html</loc>
@@ -189,8 +197,12 @@
         <lastmod>2025-11-09</lastmod>
     </url>
     <url>
-        <loc>https://webleger.github.io/WL_Website/hp/title/accroche/825_accroche_size.html</loc>
-        <lastmod>2025-11-07</lastmod>
+        <loc>https://webleger.github.io/WL_Website/hp/tarif/list/822_tarif_entreprise.html</loc>
+        <lastmod>2025-11-09</lastmod>
+    </url>
+    <url>
+        <loc>https://webleger.github.io/WL_Website/hp/tarif/list/821_tarif_thecnoAnthousiaste.html</loc>
+        <lastmod>2025-11-09</lastmod>
     </url>
     <url>
         <loc>https://webleger.github.io/WL_Website/hp/title/accroche/827_accroche_openSource.html</loc>
@@ -201,8 +213,8 @@
         <lastmod>2025-11-07</lastmod>
     </url>
     <url>
-        <loc>https://webleger.github.io/WL_Website/hp/title/822_pageTitle.html</loc>
-        <lastmod>2025-11-06</lastmod>
+        <loc>https://webleger.github.io/WL_Website/hp/title/accroche/825_accroche_size.html</loc>
+        <lastmod>2025-11-07</lastmod>
     </url>
     <url>
         <loc>https://webleger.github.io/WL_Website/hp/start/824_demarez.html</loc>
@@ -237,6 +249,10 @@
         <lastmod>2025-11-06</lastmod>
     </url>
     <url>
+        <loc>https://webleger.github.io/WL_Website/hp/title/822_pageTitle.html</loc>
+        <lastmod>2025-11-06</lastmod>
+    </url>
+    <url>
         <loc>https://webleger.github.io/WL_Website/documentation/creation/composants/usage/741_composant_sticker.html</loc>
         <lastmod>2025-11-03</lastmod>
     </url>
@@ -259,10 +275,6 @@
     <url>
         <loc>https://webleger.github.io/WL_Website/documentation/creation/composants/usage/736_composant_menu.html</loc>
         <lastmod>2025-11-03</lastmod>
-    </url>
-    <url>
-        <loc>https://webleger.github.io/WL_Website/documentation/creation/composants/subContent_exemples/997_composant_subContent_exemples_card_modalLink.html</loc>
-        <lastmod>2025-10-28</lastmod>
     </url>
     <url>
         <loc>https://webleger.github.io/WL_Website/documentation/creation/composants/subContent_exemples/997_composant_subContent_exemples_card_modal.html</loc>
@@ -298,6 +310,10 @@
     </url>
     <url>
         <loc>https://webleger.github.io/WL_Website/documentation/creation/composants/subContent_exemples/998_composant_subContent_exemples_collapse_block.html</loc>
+        <lastmod>2025-10-28</lastmod>
+    </url>
+    <url>
+        <loc>https://webleger.github.io/WL_Website/documentation/creation/composants/subContent_exemples/997_composant_subContent_exemples_card_modalLink.html</loc>
         <lastmod>2025-10-28</lastmod>
     </url>
     <url>
