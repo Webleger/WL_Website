@@ -22,10 +22,5 @@ Il est parfois utile de personnaliser l'affichage d'un bloque (position de l'ima
 - ``category`` : category pour filtrer les blocks
 - ``displayTitle`` : (default : true) affichage du titre du block
 - ``titleTag`` : (default : h2) tag à utiliser pour encapsuler le titre
-- ``toc`` : (optionnel, pas de Toc si absent) : inclure la table des matières 
-- ``toc.title`` : (default "") : titre de la table des matières
-- ``toc.subTemplate`` : (default "defaultTocSubTemplate" => "blockTocUlLiWithLinkSubTemplate") : macro affichant la Table des Matières (d'autre macros peuvent être ajoutées)
-- **blockTocUlLiWithLinkSubTemplate** : affichage sous forme de liste BulletPoint avec lien
--  **blockTocSelectSubTemplate** : affichage sous forme d'un menu déroulant (avec lien)
 	
 Le composant block définie des hooks, permettant d'ajuster du contenu à une zone du block.

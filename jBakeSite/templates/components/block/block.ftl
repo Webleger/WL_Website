@@ -9,43 +9,35 @@
 
 <#macro build theContent>
 	<#if (theContent.includeBlocks)?? && (theContent.includeBlocks.category)??>
-		<#local displayToc="">
-		<#if (theContent.includeBlocks)?? && (theContent.includeBlocks.toc)??>
-			<#local displayToc = theContent.includeBlocks.toc>
-		</#if>
-		<@buildWithCategory theContent.includeBlocks.category "order" displayToc/>
+		<@buildWithCategory theContent.includeBlocks.category "order"/>
 	</#if>
 </#macro>
 
-
-<#assign allGeneratedAnchorIdByTitle = []>
-<#-- build a content with blocks
-    @param categoryFilter category to filter to get blocks. "config.site_homepage_category" for HomePage.
--->
-<#macro buildWithCategory categoryFilter orderBy="order" displayToc="">
-	<#local blocks = org_openCiLife_blocks?filter(b -> b.status=="published")?filter(b-> sequenceHelper.seq_containsOne(b.category!"__empty_categ__", categoryFilter))>
+<#function getBlocks theContent categoryFilter="" orderBy="">
+	<#if !(categoryFilter?has_content) && (theContent.includeBlocks)??>
+		<#local categoryFilter = theContent.includeBlocks.category>
+	</#if>
+	<#if !(orderBy?has_content) && (theContent.includeBlocks)?? && (theContent.includeBlocks.order)??>
+		<#local orderBy = theContent.includeBlocks.order>
+	<#else>
+		<#local orderBy = "order">
+	</#if>
+	
+	<#local blocks = org_openCiLife_blocks?filter(b -> b.status=="published")?filter(b-> sequenceHelper.seq_containsOne(b.category!"__empty_categ__", categoryFilter))?sort_by(orderBy)>
 	<#if (langHelper)??>
 		<#local blocks = blocks?filter(ct -> langHelper.isCorectLang(ct, langHelper.getLang(content)))>
 	</#if>
-	
 	<#if logHelper??>
-		<@logHelper.debug "Blocks : display block for " + categoryFilter + " (published, filtered by lang if resquired) with " + blocks?size + " blocks"/>
+		<@logHelper.debug "Blocks : Liste of blocks for " + categoryFilter + " (published, filtered by lang if resquired) with " + blocks?size + " blocks"/>
 	</#if>
-	
-	<#if displayToc?has_content>
-		<#if logHelper??>
-	 		${logHelper.stackDebugMessage("Blocks : display TOC for ${content.uri} with value " + common.toString(displayToc))}
-	 	</#if>
-		<#local subTemplateName = "defaultTocSubTemplate">
-		<#if (displayToc.subTemplate??)>
-			<#local subTemplateName=displayToc.subTemplate>
-		</#if>
-		
-		<#local subTemplateInterpretation = "<@${subTemplateName} displayToc blocks orderBy />"?interpret>
-		<@subTemplateInterpretation/>
-	</#if>	
-	
-	<#list blocks?sort_by(orderBy) as block>
+	<#return blocks>
+</#function>
+
+<#-- build a content with blocks
+    @param categoryFilter category to filter to get blocks. "config.site_homepage_category" for HomePage.
+-->
+<#macro buildWithCategory categoryFilter orderBy="order">
+	<#list getBlocks(content, categoryFilter, order) as block>
 		<#local blockCategory = block.category!"__empty_categ__">
 		<#if (sequenceHelper.seq_containsOne(blockCategory, categoryFilter))>
 	 		<#local uselessTempVar = commonInc.propagateContentChain(block) />
@@ -58,85 +50,15 @@
 			<@subTemplateInterpretation/>
 		</#if>
   	</#list>
-  	<#assign allGeneratedAnchorIdByTitle = []>
+  	${common.clearGeneratedAnchorId()}
 </#macro>
-
-<#macro defaultTocSubTemplate displayToc blocks blocksOrderBy>
-	<@blockTocUlLiWithLinkSubTemplate displayToc blocks blocksOrderBy />
-</#macro>
-
-<#macro blockTocUlLiWithLinkSubTemplate displayToc blocks blocksOrderBy>
-	<div class="toc">
-		<#local endTag="">
-		<@displayTocTitle displayToc />
-		
-		<ul class="toc_list">
-		<#list blocks?sort_by(blocksOrderBy) as blockForToc>
-			<#local uri = buildTocUri(blockForToc)>
-			<#if uri?has_content>
-				<a href="${uri}">
-				<#local endTag="</a>">
-			</#if>
-			<li class="toc_item">${blockForToc.title}</li>
-			${endTag}
-		</#list>
-		</ul>
-	</div>
-</#macro>
-
-<#macro blockTocSelectSubTemplate displayToc blocks blocksOrderBy>
-	<div class="toc">
-		<#local endTag="">
-		<select class="toc_list toc-select">
-		<option value="">--${displayToc.title!"Choisir"}--</option>
-		<#list blocks?sort_by(blocksOrderBy) as blockForToc>
-			<#local uri = buildTocUri(blockForToc)>
-			<option value="${uri}" class="toc_item">${blockForToc.title}</option>
-			${endTag}
-		</#list>
-		</select>
-	</div>
-</#macro>
-
-<#macro displayTocTitle displayToc>
-	<#local tocTitle = displayToc.title!"">
-	<#if tocTitle?has_content>
-		<h3 class="toc_title">${tocTitle}</h3>
-	</#if>
-</#macro>
-
-<#function buildTocUri block>
-	<#local uri = "">
-	<#if (block.anchorId)??>
-		<#local uri = "#" + block.anchorId>
-	<#else>
-		<#local generatedAnchorId = common.randomNumber()>
-		<#assign allGeneratedAnchorIdByTitle = allGeneratedAnchorIdByTitle + [{"title":block.title, "anchorId":generatedAnchorId}]>
-		<#local uri = "#" + generatedAnchorId>
-	</#if>
-	<#return uri>
-</#function>
-
-<#function getGeneratedAnchorId blockTitle>
-	<#if logHelper??>
- 		${logHelper.stackDebugMessage("Blocks TOC : searching for the eventually generated ID for : '${blockTitle}' in ${allGeneratedAnchorIdByTitle?size} generatedIds")}
- 	</#if>
-	<#local anchorId = "">
-	<#list allGeneratedAnchorIdByTitle as  generatedAnchorIdByTitle>
-		<#if generatedAnchorIdByTitle.title == blockTitle>
-			<#local anchorId = generatedAnchorIdByTitle.anchorId>
-			<#break>
-		</#if>
-	</#list>
-	<#return anchorId>
-</#function>
 
 <#macro generateAnchor block>
 	<#local theAnchorId = "">
 	<#if (block.anchorId)??>
 		<#local theAnchorId = block.anchorId>
 	<#else>
-		<#local theGeneratedAnchorId = getGeneratedAnchorId(block.title)>
+		<#local theGeneratedAnchorId = common.getGeneratedAnchorId(block.title)>
 		<#if theGeneratedAnchorId?has_content>
 			<#local theAnchorId = theGeneratedAnchorId>
 		</#if>
