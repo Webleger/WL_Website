@@ -1,8 +1,27 @@
 <#function getComponnentInfo>
-	<#return {"componnentVersion":1, "name":"legal", "description":"help for legal informations", "recommandedNamespace":"legal", "version":"0.1.0", "uses":[{"value":"propertiesHelper", "type":"lib"}, {"value":"logHelper", "type":"lib"}]}>
+	<#return {"componnentVersion":2, "name":"legal", "description":"help for legal informations", "recommandedNamespace":"legal", "version":"0.1.0", "uses":[{"value":"propertiesHelper", "type":"lib"}, {"value":"logHelper", "type":"lib"}]}>
 </#function>
 
 <#function init>
+	<#return "" />
+</#function>
+
+<#function registerDefaultHooks()>
+	<#local registerComponnentHooks = true>
+	<#if registerComponnentHooks>
+		${hookHelper.registerHook("afterBody", "legal.buildLegal", false)}
+		${hookHelper.registerHook("afterBlockBody", "legal.buildLegal", false)}
+		
+		${hookHelper.registerHook("afterFooter", "legal.displayLegaleLinks", false)}
+		${hookHelper.registerHook("afterFooter", "legal.displayCgvLinks", false)}
+	</#if>
+</#function>
+
+<#function addHeaderScripts()>
+	<#return "" />
+</#function>
+
+<#function addFooterScripts()>
 	<#return "" />
 </#function>
 
@@ -96,7 +115,7 @@
 	<#if (allCgvContents?size>0)>
 		<ul class="${classes}">
 			<#list allCgvContents?sort_by("date") as cgvContent>
-				<li><a href=${cgvContent.uri}>${cgvContent.title} (${cgvContent.date?date})</a></li>
+				<li><a href=${common.buildRootPathAwareURL(cgvContent.uri)}>${cgvContent.title} (${cgvContent.date?date})</a></li>
 			</#list>
 		</ul>
 	</#if>
