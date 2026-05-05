@@ -10,5 +10,3 @@ order=92
 [Fonctionnalités](${webleger.build.host}/index.html#lp_fonctionalities)
 [Documentation](${webleger.build.host}/documentation/700_documentation.html)
 [GitHub](https://github.com/jderuette/ecoweb)
-
-

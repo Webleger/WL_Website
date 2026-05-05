@@ -18,7 +18,7 @@
 <#function addHeaderScripts()>
 	<#if ressourcesHelper??>
 		${ressourcesHelper.addHeaderRessource({"tagType":"link", "href":"static/top.css", "rel":"stylesheet", "order":50})}
-		${ressourcesHelper.addHeaderRessource({"tagType":"script", "href":"static/top.js", "order":55})}
+		${ressourcesHelper.addHeaderRessource({"tagType":"script", "src":"static/top.js", "order":55})}
 	<#else>
 		<#if logHelper??>
 			${logHelper.stackDebugMessage("ecoWeb.addHeaderScripts : ERROR cannot add footer script, missing 'ressourcesHelper' component")}

@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html lang="<#if (langHelper)??>${langHelper.getLangForHtmlHeader(alteredContent)}<#elseif (config.site_langs_default)??>${config.site_langs_default}<#else>fr</#if>">
   <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8">
     <title><#if (alteredContent.title)??><#escape x as x?xml>${alteredContent.title}</#escape><#else>${propertiesHelper.retrieveAndDisplayConfigText("site.header.title")}</#if></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="${ecoWeb.retrieveMetaDescription(alteredContent)}">
@@ -15,23 +15,23 @@
     <meta name="keywords" content="${ecoWeb.retrieveMetaKeyWord(alteredContent)}">
     <meta name="generator" content="JBake">
     <#if (alteredContent.uri)??>
-    	<link rel="canonical" href="${common.getCanonicalUrl()}" />
+    	<link rel="canonical" href="${common.getCanonicalUrl()}">
     </#if>
     <#if alteredContent.type == "org_openCiLife_block" || ((alteredContent.status)?? && alteredContent.status == "draft")>
-    	<meta name="robots" content="noindex, nofollow" />
+    	<meta name="robots" content="noindex, nofollow" >
     <#else>
     	<#assign robotsVal = propertiesHelper.retrieveAndDisplayConfigText("site.header.robots")>
     	<#if robotsVal?has_content>
-    		<meta name="robots" content="${robotsVal}" />
+    		<meta name="robots" content="${robotsVal}" >
     	</#if>
     </#if>
-    <meta property="og:title" content="<#if (alteredContent.title)??><#escape x as x?xml>${alteredContent.title}</#escape><#else>${propertiesHelper.retrieveAndDisplayConfigText("site.header.title")}</#if>" />
-	<meta property="og:type" content="website" />
-	<meta property="og:url" content="${common.getCanonicalUrl()}" />
+    <meta property="og:title" content="<#if (alteredContent.title)??><#escape x as x?xml>${alteredContent.title}</#escape><#else>${propertiesHelper.retrieveAndDisplayConfigText("site.header.title")}</#if>" >
+	<meta property="og:type" content="website" >
+	<meta property="og:url" content="${common.getCanonicalUrl()}" >
 	<#if (alteredContent.contentImage)??>
-		<meta property="og:image" content="${common.buildAbsoluteURL(alteredContent.contentImage)}" />
+		<meta property="og:image" content="${common.buildAbsoluteURL(alteredContent.contentImage)}" >
 	<#else>
-		<meta property="og:image" content="${common.buildRootPathAwareURL(propertiesHelper.retrieveAndDisplayConfigText("site.logoLeft.file"))}" />
+		<meta property="og:image" content="${common.buildRootPathAwareURL(propertiesHelper.retrieveAndDisplayConfigText("site.logoLeft.file"))}" >
 	</#if>
 	<#if (alteredContent.excerpt)??>
 		<meta name="og:description" content="${alteredContent.excerpt}">
@@ -80,12 +80,12 @@
 			<div id="pageTitle">
 				<#if propertiesHelper.hasConfigValue("site.logoLeft.file")>
 				<a href="${config.site_host}/index.html">
-					<img src="${common.buildRootPathAwareURL(propertiesHelper.retrieveAndDisplayConfigText("site.logoLeft.file"))}" alt="${propertiesHelper.displayConfigText(propertiesHelper.retrieveAndDisplayConfigText("site.logoLeft.description"))}" id="logoLeft"/>
+					<img src="${common.buildRootPathAwareURL(propertiesHelper.retrieveAndDisplayConfigText("site.logoLeft.file"))}" alt="${propertiesHelper.displayConfigText(propertiesHelper.retrieveAndDisplayConfigText("site.logoLeft.description"))}" id="logoLeft">
 				</a>
 				</#if>
 				<h1 id="headerTitle">${propertiesHelper.retrieveAndDisplayConfigText("site.headline")}</h1>
 				<#if propertiesHelper.hasConfigValue("site.logoRight.file")>
-					<img src="${common.buildRootPathAwareURL(propertiesHelper.retrieveAndDisplayConfigText("site.logoRight.file"))}" alt="${propertiesHelper.displayConfigText(propertiesHelper.retrieveAndDisplayConfigText("site.logoRight.description"))}" id="logoRight"/>
+					<img src="${common.buildRootPathAwareURL(propertiesHelper.retrieveAndDisplayConfigText("site.logoRight.file"))}" alt="${propertiesHelper.displayConfigText(propertiesHelper.retrieveAndDisplayConfigText("site.logoRight.description"))}" id="logoRight">
 				</#if>
 			</div>
 		</div>

@@ -22,12 +22,6 @@
 	<#return "" />
 </#function>
 
-<#macro generateAnchor subContent>
-	<#if (subContent.anchorId)??>
-		id="<#escape x as x?xml>${subContent.anchorId}</#escape>"<#rt>
-	</#if>
-</#macro>
-
 <#macro generateCssClass subContent customCssClass="">
 	<#local classes = "subContent">
 	<#if (subContent.specificClass)?? && subContent.specificClass?has_content>
@@ -76,7 +70,7 @@ param : content : content to search for include content
 		</#if>
 		
 		<#local specificClass = (content.includeContent.specificClass)!"">
-		<div <@generateAnchor content/><#if specificClass?? && specificClass?has_content> class="${specificClass}"</#if>>
+		<div <#if specificClass?? && specificClass?has_content> class="${specificClass}"</#if>>
 		<#if (subContents?size > 0)>
 			<#if (content.includeContent.title)??>
 				<div class="title">${content.includeContent.title}</div>
@@ -186,7 +180,7 @@ param : content : content to search for include content
 						<#local specificClassForContent = specificClassForContent + "featured">
 					</#if>
 					
-					<tr <@generateAnchor altSubContent/> <#rt>
+					<tr<#rt>
 						<#if (subContentDisplayContentMode == "link")>
 							<#lt> data-href="${common.buildRootPathAwareURL(altSubContent.uri)}"<#rt>
 						</#if>
@@ -212,7 +206,7 @@ param : content : content to search for include content
 											
 											<#if contentAtttrName=="title">
 												<#if (subContentBeforeTitleImage?has_content)>
-													<img src="${common.buildRootPathAwareURL(subContentBeforeTitleImage)}" class="widget_title_image icon"/>
+													<img src="${common.buildRootPathAwareURL(subContentBeforeTitleImage)}" class="widget_title_image icon">
 												</#if>
 											</#if>
 											<#if (contentAtttrValue?is_date)>
@@ -248,7 +242,7 @@ param : content : content to search for include content
 					<#if hookHelper??>
 						<@hookHelper.hook "beforeItemSubContent" altSubContent/>
 					</#if>
-					<div <@generateAnchor altSubContent/> class="${listDisplayType} content_type_${subContentDisplayContentMode} ${specificContentClass}">
+					<div class="${listDisplayType} content_type_${subContentDisplayContentMode} ${specificContentClass}">
 						<#if hookHelper??>
 							<@hookHelper.hook "beginItemSubContent" altSubContent/>
 						</#if>
@@ -274,7 +268,7 @@ param : content : content to search for include content
 							<#if displayTitle>						
 								<h3 class="${listDisplayType}_title"><#rt>
 								<#if (subContentBeforeTitleImage?has_content)>
-									<img src="${common.buildRootPathAwareURL(subContentBeforeTitleImage)}" class="widget_title_image icon"/>
+									<img src="${common.buildRootPathAwareURL(subContentBeforeTitleImage)}" class="widget_title_image icon">
 								</#if>
 									<#t>${altSubContent.title!""}
 								<#lt></h3>
@@ -294,7 +288,7 @@ param : content : content to search for include content
 					<#if hookHelper??>
 						<@hookHelper.hook "beforeItemSubContent" altSubContent/>
 					</#if>
-					<div <@generateAnchor altSubContent/> class="${listDisplayType} content_type_${subContentDisplayContentMode} ${specificContentClass}">
+					<div class="${listDisplayType} content_type_${subContentDisplayContentMode} ${specificContentClass}">
 						<#if featauredText?has_content>
 							<div class="featured_label">${featauredText}</div>
 						</#if>
@@ -333,7 +327,7 @@ param : content : content to search for include content
 						<#if displayTitle>						
 							<h3 class="${listDisplayType}_title"><#rt>
 							<#if (subContentBeforeTitleImage?has_content)>
-								<img src="${common.buildRootPathAwareURL(subContentBeforeTitleImage)}" class="widget_title_image icon"/>
+								<img src="${common.buildRootPathAwareURL(subContentBeforeTitleImage)}" class="widget_title_image icon">
 							</#if>
 								<#t>${altSubContent.title!""}
 							<#lt></h3>
@@ -482,7 +476,7 @@ param : content : content to search for include content
 							<#if displayTitle>						
 								<h3 class="${className}_title"><#rt>
 								<#if (subContentBeforeTitleImage?has_content)>
-									<img src="${common.buildRootPathAwareURL(subContentBeforeTitleImage)}" class="widget_title_image icon"/>
+									<img src="${common.buildRootPathAwareURL(subContentBeforeTitleImage)}" class="widget_title_image icon">
 								</#if>
 									<#t>${altSubContent.title!""}
 								<#lt></h3>
