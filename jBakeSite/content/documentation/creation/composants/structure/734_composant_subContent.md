@@ -9,6 +9,7 @@ specificClass=Documentation
 displayDate=true
 hooks={"data":[{"position":"afterBody", "action":"commonInc.buildComponnentInfos", "renderOnce":true}]}
 documentationComponent={"namespace":"subcontent"}
+anchorId=componsant_subContent
 order=734
 ~~~~~~
 Ce composant permet d'inclure des contenus dans un autre contenu. Il est assez similaire au composant *block* mais **subContent* sert à effectuer des listing.
@@ -30,6 +31,12 @@ Personnalisation :
 - ``specificClass`` permet d'ajouter une classe spécifique pour permettre la personnalisation de l'affichage (via le CSS).
 - ``title`` : permet de personnaliser le titre de la section.
 - ``hooks`` : permet d'ajouter des contenus via les Hooks internes du composant, par exemple pour activer les formulaires et les block dans **les** sous-contenus : 
+- ``order`` : (default "order") : permet de définir la clef de trie des contenues
+- ``orderDirection`` : (default "ascending") : permet de définir la sens de trie des contenues
+  - **descending** ou **desc** : du plus grand au plus petit
+  - **toute autre valeur** : sera considéré comme **ascending** donc du plus petit au plus grand
+- ``filter`` : (default "ascending") : permet de définir un filtre pour mimiter l'affichage des contenu, par exemple ``"filter":"common.isTodayOrAfter"``
+ 
  
  ```
  "hooks":{"data":[{"position":"endItemSubContent", "action":"block.build", "renderOnce":true}, {"position":"endItemSubContent", "action":"form.build", "renderOnce":true}]}, "display":{"type":"card", "content":"visible"}
@@ -48,6 +55,7 @@ Le format d'affichage des éléments :
 - **link** : lorsque l'utilisateur clique sur le contenu, une nouvelle page s'affiche.
 - **visible** : le contenu est directement intégré.
 - ``display.subTemplate`` : le sous contenu sera généré par un "sous-template" personnalisé. Par exemple ``"display":{"type":"type", "subTemplate":"humaniPattes.partenairesCard"}``
+- ``display.displayTags`` : (defaut : false) : permet d'activer l'affichage des tags
 
 Des exemples des différentes combinaisons sont disponibles : [subContent_exemples/735_composant_subContent_exemples.html](subContent_exemples/735_composant_subContent_exemples.html)
 

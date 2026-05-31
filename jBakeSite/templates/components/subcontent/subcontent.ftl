@@ -22,6 +22,12 @@
 	<#return "" />
 </#function>
 
+<#macro generateAnchor subContent>
+	<#if (subContent.anchorId)??>
+		id="<#escape x as x?xml>${subContent.anchorId}</#escape>"<#rt>
+	</#if>
+</#macro>
+
 <#macro generateCssClass subContent customCssClass="">
 	<#local classes = "subContent">
 	<#if (subContent.specificClass)?? && subContent.specificClass?has_content>
@@ -46,6 +52,9 @@ param : content : content to search for include content
 		<#local includeContentFilter = content.includeContent.category!"all">
 		<#local noCnontentText = content.includeContent.noContentText!"">
 		<#local maxItemToDisplay = content.includeContent.limit!-1>
+		<#local orderBy = content.includeContent.order!"order">
+		<#local orderDirection = content.includeContent.orderDirection!"ascending">
+		<#local filter = content.includeContent.filter!"">
 		
 		<#local subContents = allSubContents>
 		
@@ -69,8 +78,20 @@ param : content : content to search for include content
 			</#if>
 		</#if>
 		
+		<#if filter?has_content>
+			<#local subContents = subContents?filter(filter?eval)>
+		</#if>
+		
+		<#if logHelper??>
+			<@logHelper.debug "Included ordering : order : " + orderBy + ", direction : " + orderDirection />
+		</#if>
+		<#local subContents = subContents?sort_by(orderBy)>
+		<#if orderDirection=="descending" || orderDirection=="desc">
+			<#local subContents = subContents?reverse>
+		</#if>
+		
 		<#local specificClass = (content.includeContent.specificClass)!"">
-		<div <#if specificClass?? && specificClass?has_content> class="${specificClass}"</#if>>
+		<div <@generateAnchor content/><#if specificClass?? && specificClass?has_content> class="${specificClass}"</#if>>
 		<#if (subContents?size > 0)>
 			<#if (content.includeContent.title)??>
 				<div class="title">${content.includeContent.title}</div>
@@ -120,7 +141,8 @@ param : content : content to search for include content
 			<#else>
 				<div class="${listDisplayType}_list">
 			</#if>
-			<#list subContents?sort_by("order") as subContent>
+			
+			<#list subContents as subContent>
 				<#if (maxItemToDisplay!=-1) && (subContent?counter > maxItemToDisplay) >
 					<#break>
 				</#if>
@@ -180,7 +202,7 @@ param : content : content to search for include content
 						<#local specificClassForContent = specificClassForContent + "featured">
 					</#if>
 					
-					<tr<#rt>
+					<tr <@generateAnchor altSubContent/> <#rt>
 						<#if (subContentDisplayContentMode == "link")>
 							<#lt> data-href="${common.buildRootPathAwareURL(altSubContent.uri)}"<#rt>
 						</#if>
@@ -242,7 +264,7 @@ param : content : content to search for include content
 					<#if hookHelper??>
 						<@hookHelper.hook "beforeItemSubContent" altSubContent/>
 					</#if>
-					<div class="${listDisplayType} content_type_${subContentDisplayContentMode} ${specificContentClass}">
+					<div <@generateAnchor altSubContent/> class="${listDisplayType} content_type_${subContentDisplayContentMode} ${specificContentClass}">
 						<#if hookHelper??>
 							<@hookHelper.hook "beginItemSubContent" altSubContent/>
 						</#if>
@@ -288,7 +310,7 @@ param : content : content to search for include content
 					<#if hookHelper??>
 						<@hookHelper.hook "beforeItemSubContent" altSubContent/>
 					</#if>
-					<div class="${listDisplayType} content_type_${subContentDisplayContentMode} ${specificContentClass}">
+					<div <@generateAnchor altSubContent/> class="${listDisplayType} content_type_${subContentDisplayContentMode} ${specificContentClass}">
 						<#if featauredText?has_content>
 							<div class="featured_label">${featauredText}</div>
 						</#if>

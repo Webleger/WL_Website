@@ -92,7 +92,7 @@ return : text with URL transformed
 	<#if (image)??>
 		<#if common.isSvg(image)>
 			<@wrap wrapTo>
-				<span <#if cssClass?has_content>class="${cssClass}"</#if>>
+				<span <#if cssClass?has_content>class="${cssClass}"</#if><#if alternativeText?has_content> alt="${alternativeText}"</#if>>
 					${image}
 				</span>
 			</@wrap>
@@ -210,4 +210,12 @@ param : theObject : object to transform in String
 		<#local canonicalUri="${webleger.build.host}/${content.uri}" />
 	</#if>
 	<#return canonicalUri>
+</#function>
+
+<#function isTodayOrAfter theContent>
+	<#local returnVal = false>
+	<#if (theContent.date)?? && (.now?date <= theContent.date?date)>
+		<#local returnVal = true>
+	</#if>
+	<#return returnVal>
 </#function>

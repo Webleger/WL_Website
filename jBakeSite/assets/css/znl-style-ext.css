@@ -46,6 +46,23 @@ code {
 	color: hsl(150,30%,15%);
 }
 
+.actualitees .content_tags {
+     display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-right: 10px;
+}
+
+.actualitees .content_tags li {
+	list-style-type: none;
+	background-color:${webleger.site.style.discret.background.color};
+	color: initial;
+	border: 1px solid ${webleger.site.style.primary.background.color};
+	border-radius: 12px;
+	padding: 3px;
+	margin-top: 5px;
+}
+
 #footer_blocks .block {
 	text-align:left;
 }
