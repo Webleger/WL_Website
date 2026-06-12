@@ -22,9 +22,21 @@
 	<#return "" />
 </#function>
 
-<#macro generateAnchor subContent>
-	<#if (subContent.anchorId)??>
-		id="<#escape x as x?xml>${subContent.anchorId}</#escape>"<#rt>
+<#macro generateAnchor theContent defaultAnchor="">
+	<#local theAnchorId = defaultAnchor>
+	<#if (theContent.anchorId)??>
+		<#local theAnchorId = theContent.anchorId>
+	</#if>
+	
+	<#if theAnchorId?has_content>
+		<#if logHelper??>
+			${logHelper.stackDebugMessage("SubContent.generateAnchor : Generated anchor : " + theAnchorId)}
+		</#if>
+		id="<#escape x as x?xml>${theAnchorId}</#escape>"<#rt>
+	<#else>
+		<#if logHelper??>
+		${logHelper.stackDebugMessage("SubContent.generateAnchor : anchor NOT generated (no header content value or defaultValue) : defaultVal passed as param : " + defaultAnchor)}
+	</#if>
 	</#if>
 </#macro>
 
@@ -37,6 +49,64 @@
 		<#local classes = classes + " " + customCssClass>
 	</#if>
 	<#lt>class="<#escape x as x?xml>${classes}</#escape>"
+</#macro>
+
+
+<#macro generateUserFilters theContent subContents target addSubTargetElement=true>
+	<#if (theContent.includeContent.userFilters)?? && (theContent.includeContent.userFilters.filters?size > 0)>
+		<div class="userFilters">
+			<span>${theContent.includeContent.userFilters.title}</span>
+			<#list theContent.includeContent.userFilters.filters as filter>
+				<#local allValues = []>
+				<#local allLabel = filter.allLabel!"Tous">
+			  	<#list subContents as subContent>
+			  	<#if (filter.element)?? && (subContent[filter.element])??>
+			  			<#local subContentValues = subContent[filter.element]>
+				  		<#if (subContentValues)??>
+				  			<#if subContentValues?contains(",")>
+				  				<#local subValues = subContentValues.split(",")>
+				  				<#list subValues as subValue>
+				  					<#local allValues = common.appendIfNoExits(allValues, subValue?trim)>
+				  				</#list>
+				  			<#else>
+				  				<#local allValues = common.appendIfNoExits(allValues, subContentValues)>
+				  			</#if>
+				  		</#if>
+			  		</#if>
+			  	</#list>
+			  	
+			  	<#local theTarget = target>
+			  	<#if addSubTargetElement>
+			  		<#local theTarget = target + " .userFilter_" + filter.element>
+			  	</#if>
+				<div>
+					<span>${filter.label}</span>
+					<div class="btn-toolbar filterElements" role="toolbar" data-target-list="${theTarget}">
+					  <div class="btn-group">
+					    <button type="button" class="btn btn-default userFilter_all">${allLabel}</button>
+					  </div>
+					  <div class="btn-group userFilter_choices">
+						<#list allValues as val>
+							<button type="button" class="btn btn-default">${val}</button>
+						</#list>
+					  </div>
+					</div>
+				</div>
+			</#list>
+		</div>
+	</#if>
+</#macro>
+
+<#macro generateUserFiltersElementData theContent subContent wrapper="div">
+	<#if (theContent.includeContent.userFilters)?? && (theContent.includeContent.userFilters.filters?size > 0)>
+		<${wrapper} class="hidden hiddenUserFilters">
+		<#list theContent.includeContent.userFilters.filters as filter>
+			<#if (filter.element)?? && (subContent[filter.element])??>
+				<span class="hidden hiddenUserFilter userFilter_<#escape x as x?xml>${(filter.element)?replace(" ", "_")}</#escape>">${subContent[filter.element]}</span>
+			</#if>
+		</#list>
+		</${wrapper}>
+	</#if>
 </#macro>
 
 <#-- build an block or table listing (using Boostrap)
@@ -55,6 +125,7 @@ param : content : content to search for include content
 		<#local orderBy = content.includeContent.order!"order">
 		<#local orderDirection = content.includeContent.orderDirection!"ascending">
 		<#local filter = content.includeContent.filter!"">
+		<#local anchorId = content.anchorId!"">
 		
 		<#local subContents = allSubContents>
 		
@@ -90,8 +161,18 @@ param : content : content to search for include content
 			<#local subContents = subContents?reverse>
 		</#if>
 		
+			<#if (content.includeContent.userFilters)?? && (content.includeContent.userFilters.filters?size > 0) >
+				<#if !anchorId?has_content>
+				<#-- UserFilter REQUIRED an AnchorId, generating one as none specified in content header -->
+					<#local anchorId = common.generatedAnchorId(content.title)>
+					${logHelper.stackDebugMessage("SubContent.build (userFilter) : Generating an anchor because UserFilter REQUIRE one, id generated : " + anchorId)}
+				<#else>
+					${logHelper.stackDebugMessage("SubContent.build (userFilter) : Anchor ID already set : " + anchorId)}
+				</#if>
+			</#if>
+		
 		<#local specificClass = (content.includeContent.specificClass)!"">
-		<div <@generateAnchor content/><#if specificClass?? && specificClass?has_content> class="${specificClass}"</#if>>
+		<div <@generateAnchor content, anchorId /><#if specificClass?? && specificClass?has_content> class="${specificClass}"</#if>>
 		<#if (subContents?size > 0)>
 			<#if (content.includeContent.title)??>
 				<div class="title">${content.includeContent.title}</div>
@@ -120,7 +201,8 @@ param : content : content to search for include content
 				<@subTemplateInterpretation/>
 				<#return>
 			<#elseif (listDisplayType == "table")>
-				<table class="${listDisplayType}_list content_type_${subContentDisplayContentMode}">
+				<@generateUserFilters content subContents "#"+anchorId+" ."+listDisplayType/>
+				<table class="${listDisplayType}_list content_type_${subContentDisplayContentMode} elementsList">
 					<thead>
 						<tr>
 							<#if (content.includeContent.display.columns)??>
@@ -139,7 +221,8 @@ param : content : content to search for include content
 					</thead>
 					<tbody>
 			<#else>
-				<div class="${listDisplayType}_list">
+				<@generateUserFilters content subContents "#"+anchorId+" ."+listDisplayType/>
+				<div class="${listDisplayType}_list elementsList">
 			</#if>
 			
 			<#list subContents as subContent>
@@ -214,6 +297,7 @@ param : content : content to search for include content
 					<#lt>>
 						<#local isFirstColumn = true>
 						<#if ((content.includeContent.display.columns)?? && content.includeContent.display.columns?is_sequence)>
+							<@generateUserFiltersElementData content subContent td />
 							<#list content.includeContent.display.columns?sort_by("order") as column>
 								<td>
 									<#if isFirstColumn>
@@ -268,6 +352,7 @@ param : content : content to search for include content
 						<#if hookHelper??>
 							<@hookHelper.hook "beginItemSubContent" altSubContent/>
 						</#if>
+						<@generateUserFiltersElementData content subContent />
 						<div class="step_icon">
 							<#if (altSubContent.contentImage)??>
 								<@common.addImageIcon altSubContent.contentImage listDisplayType+"_image" altSubContent.title/>
@@ -317,6 +402,7 @@ param : content : content to search for include content
 						<#if hookHelper??>
 							<@hookHelper.hook "beginItemSubContent" altSubContent/>
 						</#if>
+						<@generateUserFiltersElementData content subContent />
 						<#switch listDisplayType>
 							<#case  "link">
 								<a href="${common.buildRootPathAwareURL(altSubContent.uri)}" class="widget_link">
@@ -439,6 +525,7 @@ param : content : content to search for include content
 	<#local subContentDisplayTags = (theContent.includeContent.display.displayTags)!false>
 	<#local currentIndex = 0>
 	
+	<@generateUserFilters content subContents "#"+anchorId+" ."+listDisplayType/>
 	
 	<div class="${className}_list content_type_${subContentDisplayContentMode}">
 		<div class="middleLine"></div>
@@ -474,6 +561,7 @@ param : content : content to search for include content
 				</#if>
 				
 				<div class="${className} ${className}_${blockPosition}">
+					<@generateUserFiltersElementData content subContent />
 					<div class="lineMarker"></div>
 						<div class="${className}_block">
 						<#if featauredText?has_content>

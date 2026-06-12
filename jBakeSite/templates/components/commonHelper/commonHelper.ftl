@@ -219,3 +219,10 @@ param : theObject : object to transform in String
 	</#if>
 	<#return returnVal>
 </#function>
+
+<#function appendIfNoExits theList newVal>
+	<#if ! theList?seq_contains(newVal)>
+		<#local theList = theList + [newVal]>
+	</#if>
+	<#return theList>
+</#function>

@@ -1,7 +1,7 @@
 title=Actualitées
 date=2025-12-01
 type=org_openCiLife_post
-includeContent={"type":"org_openCiLife_post", "category":"actu", "specificClass":"actualitees fourPerRow", "order":"date", "orderDirection":"desc", "display":{"type":"card", "content":"link", "displayTags":true}}
+includeContent={"type":"org_openCiLife_post", "category":"actu", "specificClass":"actualitees fourPerRow", "order":"date", "orderDirection":"desc", "userFilters":{"title":"Filtrez les actualitées", "filters":[{"element":"actuCategory", "label":"Categorie"}, {"element":"actuComponent", "label":"Composant", "allLabel":"Toutes les catégories"}]}, "display":{"type":"card", "content":"link", "displayTags":true}}
 status=published
 category=global
 specificClass=actualitees

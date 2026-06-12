@@ -1,8 +1,10 @@
-title=Mise à jour mineur
+title=Trie et Filtres pour SubContent
 date=2026-05-31
 type=org_openCiLife_post
 category=actu
-tags=31/05/2025
+tags=31/05/2026
+actuCategory=Mise à jour Mineur
+actuComponent=subContent
 status=published
 specificClass=actualitee
 exerpt=Un peu plus de flexibilité pour les listes de contenus (SubContent)

@@ -1,0 +1,96 @@
+$(document).ready(function(){
+  $(".filterElements .btn").on("click", function() {
+	var clickedButton = $(this);
+	var userFiltersDiv = $(this).parents(".userFilters");
+	var subContentBlock = userFiltersDiv.parent();
+	var allFiltersGroup = userFiltersDiv.find(".filterElements");
+	
+	console.log ("UserFilters : filtering using : " + allFiltersGroup.size() + " filterGroups");
+	
+	//init
+	userFiltersDiv.find(".userFilter_all").removeClass('activeFilter');
+	clickedButton.toggleClass('activeFilter');
+	//reset
+	var allCards = subContentBlock.children(".elementsList").children();
+	console.log("UserFilters : reseting " + allCards.size() + " elements");
+	allCards.removeClass("hiddenElement");
+	allCards.toggle(true);
+	
+	var handleLast = [];
+	//add class for diltering
+	allFiltersGroup.each(function() {
+		var allowMultiple = true;
+		var currentGroup = $(this);
+		var targetList = currentGroup.data('targetList');
+		var buttonsChoice = currentGroup.find(".userFilter_choices .btn");
+		
+		var buttonAll = currentGroup.find(".userFilter_all");
+		var isAllButtonActive = buttonAll.hasClass("activeFilter");
+		var numberOfButtonActive = buttonsChoice.filter(".activeFilter").size();
+		var allChoiceButtonActive = buttonsChoice.size() == numberOfButtonActive
+		
+		
+		var atLeastOneChoiceButtonActive = buttonsChoice.hasClass("activeFilter");
+		console.log ("=UserFilters : mamanging class to " + targetList + " ("  + buttonsChoice.size() + " buttons, at least 1 active? " + atLeastOneChoiceButtonActive + ", all Choice button active? " + allChoiceButtonActive 
+					+ ", is All button active ?"+ isAllButtonActive + " ), allow Multiple Selection :" + allowMultiple);
+		
+		if (!allowMultiple || isAllButtonActive) {
+			buttonsChoice.removeClass('activeFilter');
+		}
+		
+		if(isAllButtonActive || allChoiceButtonActive || !atLeastOneChoiceButtonActive){
+			console.log ("====== No filters for (ignoring filtering) : " + targetList);
+			allCards.removeClass("hiddenElement");
+		}else{
+			console.log ("=UserFilters : filters for '" + targetList + "' will be handle in the filtrer loop");
+			handleLast.push(currentGroup);
+		}
+	});
+	
+	
+	
+	$.each(handleLast, function (){
+		var currentGroup = $(this);
+		var buttonsChoice = currentGroup.find(".userFilter_choices .btn");
+		var targetList = currentGroup.data('targetList');
+		
+		$(targetList).filter(function() {
+			var currentElement = $(this);
+			var currentCard = currentElement.parent().parent();
+			
+			var cardfilterStatus = []
+			buttonsChoice.each(function(buttonIndex){
+				var currentButton = $(this);
+				var buttonValue = currentButton.text();
+				var isButtonActive = currentButton.hasClass("activeFilter");
+				
+				var isCardShouldBeVisible = buttonValue.toLowerCase().indexOf(currentElement.text().toLowerCase()) > -1;
+				
+				if (isButtonActive && isCardShouldBeVisible){
+					cardfilterStatus[buttonIndex] = true;
+				} else {
+					cardfilterStatus[buttonIndex] = false;
+				}
+			})
+			
+			var displayCard = cardfilterStatus.indexOf(true) >=0;
+			console.log ("====== '" + currentCard.find(".card_title").text()  + "' cardfilterStatus : " + cardfilterStatus.join(",") + ", global visible : " + displayCard);
+			
+			if(!displayCard){
+				console.log ("======== ' Hidding element");
+				currentCard.addClass("hiddenElement");
+			}
+		})
+						
+		
+			
+	      //$(this).parent().parent().toggle($(this).text().toLowerCase().indexOf(value) > -1)
+	    
+		
+		//hide filtered elements
+		subContentBlock.find(".hiddenElement").toggle(false);
+	});
+		
+  });
+});
+  
