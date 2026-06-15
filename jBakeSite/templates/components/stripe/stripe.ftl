@@ -1,5 +1,5 @@
 <#function getComponnentInfo>
-	<#return {"componnentVersion":2, "name":"stripe", "description":"allow online payement with Stripe", "version":"0.1.0", "recommandedNamespace":"stripe", "require":[{"value":"stripe", "type":"contentHeader"}], "uses":[{"value":"langHelper", "type":"lib"}, {"value":"logHelper", "type":"lib"}]}>
+	<#return {"componnentVersion":2, "name":"stripe", "description":"allow online payement with Stripe", "version":"0.1.0", "recommandedNamespace":"stripe", "require":[{"value":"stripe", "type":"contentHeader"}, {"value":"webleger.component.stripe.apiKey", "type":"config"}], "uses":[{"value":"langHelper", "type":"lib"}, {"value":"logHelper", "type":"lib"}]}>
 </#function>
 
 <#global pageUseStripe=false />
