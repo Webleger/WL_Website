@@ -43,8 +43,8 @@
 
 <#macro buildfaceBook tabs href>
 	<#if logHelper??>
-			${logHelper.stackDebugMessage("facebook.buildfaceBook : adding facebook component. page already contain Facebook component : " + pageUseFacebook?string("yes","no"))}
-		</#if>
+		${logHelper.stackDebugMessage("facebook.buildfaceBook : adding facebook component. page already contain Facebook component : " + pageUseFacebook?string("yes","no"))}
+	</#if>
 	<#global pageUseFacebook=true />
 	<div class="faceBookContainer">
     	<div class="fb-page" 
